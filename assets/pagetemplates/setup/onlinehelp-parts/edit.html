@@ -1,0 +1,47 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-bookmark"></i> $dict{general}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{page_name}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="page_name" name="page_name" class="form-control dataentry-data" ng-model="tab.edit_entity.page_name"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{language}</div>
+				<div class="rc-form-data">
+					<rc-select ng-model="tab.edit_entity.language" webservice="base/rc_languages/getLanguagesList" value="language" label="language_name" class="dataentry-data"></rc-select>
+				</div>
+			</div>
+		</div>
+
+		<part name="_templates/base/audit_info_edit"></part>
+
+	</div>
+
+</div>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-pencil"></i> $dict{online_help_content}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<textarea style="height: 500px;" ui-tinymce="ctrl.con.tinymceOptions" id="online_help_content" rows="15" class="form-control dataentry-data" ng-model="tab.edit_entity.online_help_content"></textarea>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

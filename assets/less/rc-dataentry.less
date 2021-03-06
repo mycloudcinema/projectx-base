@@ -1,0 +1,75 @@
+@import "rc-filter.less";
+
+.dataentry {
+	.multi_view {
+			margin-top:					10px;
+	}
+	form {
+		&.view {
+			.dataentry-prompt {
+				font-weight:			@boldWeight;
+				padding-top:			10px;
+			}
+			.dataentry-data {
+				font-weight:			normal;
+				padding-top:			10px;
+			}
+		}
+		&.edit, &.add {
+			.dataentry-prompt {
+				text-align:				left;
+			}
+			.dataentry-data {
+				input {
+					padding:			10px 25px 10px 10px;
+				}
+			}
+		}
+	}
+	table {
+		th {
+		}
+		td.ellipsis {
+			max-width:					100%;
+			overflow:					hidden;
+			text-overflow:				ellipsis;
+			white-space:				nowrap;
+		}
+		th.nowrap {
+			white-space:				nowrap;
+		}
+		td.nowrap {
+			white-space:				nowrap;
+			.btn-group {
+				white-space:			nowrap;
+				.btn {
+					float:				none;
+					display:			inline-block;
+				}
+			}
+		}
+	}
+}
+
+.subtab-pane {
+	.tab-pane {
+		margin-top:						10px;
+	}
+}
+
+
+div.exportRecent {
+	cursor:							pointer;
+	display:						block;
+	position:						absolute;
+	top:							18px;
+	right:							15px;
+	text-align:						right;
+	width:							150px;
+	&:hover {
+		color:						blue;
+	}
+}
+div.search-container, div.add-new-entry, div.edit-entry {
+	margin-top:						10px;
+}

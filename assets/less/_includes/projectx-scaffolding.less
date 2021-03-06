@@ -1,0 +1,208 @@
+a,
+a:hover,
+a:focus {
+    color:										inherit;
+	text-decoration:							none;
+	transition:									all 0.3s;
+}
+
+.modal-xl {
+	width:										90vw;
+	max-width:									1024px;
+	// height:										90vh;
+	// max-height:									768px;
+}
+
+.wrapper {
+	display:									flex;
+	width:										100%;
+	#sidebar {
+		background:								@sidebarColour;
+		border-right:							1px solid @signalColour;
+		border-radius:							0px !important;
+		color:									@sidebarTextColor;
+		height:									100vh;
+		left:									0;
+		position:								fixed;
+		top:									0;
+		transition:								all 0.3s;
+		width:									@sidebarWidth;
+		z-index:								999;
+		&.active {
+			margin-left:						-@sidebarWidth;
+		}
+		.sidebar-header {
+			padding:							10px 0px 0px 10px;
+			background:							@sidebarActiveColor;
+			height:								@navbarHeight;
+			h3 {
+				margin:							0px;
+				padding:						0px;
+				a {
+					color:						@sidebarActiveTextColor;
+				}
+				.sidebarCollapseIn {
+					color:						whitesmoke;
+					margin-right:				5px;
+					margin-top:					5px;
+				}
+			}
+		}
+		ul {
+			&.components {
+				padding:						20px 0;
+				border-bottom:					1px solid @sidebarActiveColor;
+			}
+			p {
+				// color:							#fff;
+				padding:						10px;
+			}
+			li {
+				/* Expanded Sub-Menu */
+				ul {
+					li {
+						&.active {
+							a {
+								background-color:	#58B;
+							}
+						}
+					}
+				}
+				a {
+					padding:					10px;
+					font-size:					1.1em;
+					display:					block;
+					&:hover {
+						color:					@sidebarActiveTextColor;
+						background:				@sidebarActiveColor;
+					}
+					&.dropdown-toggle {
+						&::after {
+							display:			block;
+							position:			absolute;
+							top:				50%;
+							right:				20px;
+							transform:			translateY(-50%);
+						}
+					}
+				}
+				&.active > a,
+				a[aria-expanded="true"] {
+					color:						@sidebarActiveTextColor;
+					background:					@sidebarActiveColor;
+				}
+				a[data-toggle="collapse"] {
+					position:					relative;
+				}
+			}
+			ul {
+				a {
+					font-size:					0.9em !important;
+					padding-left:				30px !important;
+					background:					@sidebarColour;
+				}
+			}
+
+		}
+	}
+	#content {
+		min-height:								100vh;
+		position:								absolute;
+		right:									0;
+		top:									0;
+		transition:								all 0.3s;
+		width:									calc(~"100% - " @sidebarWidth);
+		&.active {
+			width:								100%;
+			nav {
+				&.navbar {
+					.sidebarCollapseOut {
+						display:				inline !important;
+					}
+				}
+			}
+		}
+		nav {
+			&.navbar-inverse {
+				border:							0px solid @signalColour;
+				border-bottom:					1px solid #999;
+				border-radius:					0px !important;
+				.navbar-nav {
+					> li {
+						> a {
+							color:				@navbarTextColour !important;
+						}
+					}
+				}
+			}
+			&.navbar {
+				background:						@navbarColor !important;
+				color:							@navbarTextColour !important;
+				margin:							0px;
+				.navbar-brand {
+					display:					none;
+				}
+				.pageTitle {
+					font-size:					1.4em;
+					margin:						10px;
+				}
+				.sidebarCollapseOut {
+					color:						whitesmoke;
+					display:					none;
+					margin-right:				10px;
+				}
+			}
+		}
+		#content-inner {
+			padding:							20px;
+		}
+	}
+}
+
+.footer {
+	background-color:							@footerColor;
+	color:										@footerTextColor;
+	height:										@footerHeight;
+	border-top:									1px solid silver;
+    z-index:									1020;
+    line-height:								@footerHeight;
+	a {
+		color:									@footerTextColor;
+		line-height:							@footerHeight;
+		&:hover {
+			color:								@footerHoverColor;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.wrapper {
+	    #sidebar {
+	        margin-left:						-@sidebarWidth;
+			&.active {
+				margin-left:					0;
+			}
+	    }
+	    #content {
+	        width:								100% !important;
+			&.active {
+				width:							calc(~"100% - " @sidebarWidth);
+			}
+			nav {
+				&.navbar {
+					.navbar-brand {
+						display:				block !important;
+					}
+					.sidebarCollapseOut {
+						display:				none;
+					}
+				}
+			}
+	    }
+	    #sidebarCollapse {
+			span {
+				display:						none;
+			}
+	    }
+    }
+}

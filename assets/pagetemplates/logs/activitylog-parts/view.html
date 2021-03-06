@@ -1,0 +1,65 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<div class="col-md-12">
+
+	<div class="rc-form">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-bookmark"></i> $dict{general}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{activity_log_date}</div>
+				<div class="rc-form-data">
+				{{tab.entity.activity_log_date | moment:'userShortFormat' || '-'}} {{tab.entity.activity_log_date | moment:'mediumTime' || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{site_name}</div>
+				<div class="rc-form-data">
+				{{tab.entity.site_name || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{user_id}</div>
+				<div class="rc-form-data">
+				{{tab.entity.user_name || '-'}} ({{tab.entity.user_id || '-'}})
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{user_class}</div>
+				<div class="rc-form-data">
+				{{tab.entity.user_class || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{cinema_id}</div>
+				<div class="rc-form-data">
+				{{tab.entity.cinema_name || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{function}</div>
+				<div class="rc-form-data">
+				{{tab.entity.function || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{action}</div>
+				<div class="rc-form-data">
+				{{tab.entity.action || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{log_data}</div>
+			</div>
+			<div class="rc-form-group">
+				<pre class="json_syntax" ng-bind-html="tab.entity.log_data"></pre>
+			</div>
+		</div>
+
+		<part name="_templates/base/audit_info_view"></part>
+
+	</div>
+
+</div>

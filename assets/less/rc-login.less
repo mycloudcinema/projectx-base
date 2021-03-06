@@ -1,0 +1,54 @@
+/*
+ ____                     _
+|  _ \ ___ _ __ ___   ___| | __
+| |_) / _ \ '_ ` _ \ / _ \ |/ /
+|  _ <  __/ | | | | |  __/   <
+|_| \_\___|_| |_| |_|\___|_|\_\
+
+  ____                      _ _   _
+ / ___|___  _ __  ___ _   _| | |_(_)_ __   __ _
+| |   / _ \| '_ \/ __| | | | | __| | '_ \ / _` |
+| |__| (_) | | | \__ \ |_| | | |_| | | | | (_| |
+ \____\___/|_| |_|___/\__,_|_|\__|_|_| |_|\__, |
+                                          |___/
+
+Defines the styles used inside the Portal Application
+*/
+
+@import "rc-variables.less";
+@import "rc-gradients.less";
+
+body {
+	background:						url('/public/images/backgrounds/background.jpg') no-repeat center center fixed;
+	background-size:				cover;
+	-webkit-background-size:		cover;
+	-moz-background-size:			cover;
+	-o-background-size:				cover;
+	min-height:						100%;
+	padding-top:					50px;
+	-webkit-print-color-adjust:		exact;
+}
+
+form.login {
+
+	margin:							0 auto;
+	max-width:						600px;
+
+	input:-webkit-autofill,
+	input:-webkit-autofill:hover,
+	input:-webkit-autofill:focus {
+		-webkit-text-fill-color:	gray;
+		-webkit-box-shadow:			0 0 0px 1000px rgba(0,0,0,0) inset;
+		transition:					background-color 5000s ease-in-out 0s;
+		background:					0 !important;
+	}
+
+	input[type="submit"]:hover {
+		transition:					background-color 0.5s ease;
+	}
+
+}
+
+footer.copyright {
+	height:							60px;
+}

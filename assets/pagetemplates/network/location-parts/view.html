@@ -1,0 +1,46 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-bookmark"></i> $dict{general}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{location_name}</div>
+				<div class="rc-form-data">
+					{{tab.entity.location_name || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{description}</div>
+				<div class="rc-form-data">
+					{{tab.entity.description || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{location_status}</div>
+				<div class="rc-form-data">
+					{{tab.entity.location_status_name || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{active}</div>
+				<div class="rc-form-data">
+					<i ng-class='{"fa fa-check-circle-o": (tab.entity.active == true), "fa fa-circle-o": (tab.entity.active == false)}'></i>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+<div class="col-md-6">
+	<div class="rc-form rc-form-edit">
+		<part name="_templates/base/audit_info_view"></part>
+	</div>
+</div>

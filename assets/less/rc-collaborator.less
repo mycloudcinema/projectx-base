@@ -1,0 +1,30 @@
+.collaborators {
+	position:							absolute;
+	top:								5px;
+	right:								5px;
+	clear:								both;
+	.collaborator {
+		float:							right;
+		border-radius:					50%;
+		height:							50px;
+		width:							50px;
+		background:						grey;
+		color:							white;
+		line-height:					1.6em;
+		font-size:						1.6em;
+		display:						inline-block;
+		padding:						5px 0px;
+		margin-right:					5px;
+		cursor:							pointer;
+		text-align:						center;
+		&.active {
+			background:					grey;
+		}
+		&.inactive {
+			background:					silver;
+		}
+		&.myself {
+			background:					green;
+		}
+	}
+}

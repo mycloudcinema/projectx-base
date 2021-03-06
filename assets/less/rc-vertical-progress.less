@@ -1,0 +1,72 @@
+@rcVerticalBackground:							#EAEAEA;
+@rcVerticalGreen:								#008000;
+@rcVerticalOrange:								#FFA500;
+@rcVerticalRed:									red;
+
+.rc-vertical {
+	&.rc-vertical-0 {
+		.rc-vertical-inner {
+			background-color:					@rcVerticalBackground !important;
+		}
+	}
+	&.rc-vertical-1 {
+		.two, .three, .four, .five, .six, .seven, .eight, .nine, .ten {
+			background-color:					@rcVerticalBackground !important;
+		}
+	}
+	&.rc-vertical-2 {
+		.three, .four, .five, .six, .seven, .eight, .nine, .ten {
+			background-color:					@rcVerticalBackground !important;
+		}
+	}
+	&.rc-vertical-3 {
+		.four, .five, .six, .seven, .eight, .nine, .ten {
+			background-color:					@rcVerticalBackground !important;
+		}
+	}
+	&.rc-vertical-4 {
+		.five, .six, .seven, .eight, .nine, .ten {
+			background-color:					@rcVerticalBackground !important;
+		}
+	}
+	&.rc-vertical-5 {
+		.six, .seven, .eight, .nine, .ten {
+			background-color:					@rcVerticalBackground !important;
+		}
+	}
+	&.rc-vertical-6 {
+		.seven, .eight, .nine, .ten {
+			background-color:					@rcVerticalBackground !important;
+		}
+	}
+	&.rc-vertical-7 {
+		.eight, .nine, .ten {
+			background-color:					@rcVerticalBackground !important;
+		}
+	}
+	&.rc-vertical-8 {
+		.nine, .ten {
+			background-color:					@rcVerticalBackground !important;
+		}
+	}
+	&.rc-vertical-9 {
+		.ten {
+			background-color:					@rcVerticalBackground !important;
+		}
+	}
+	.rc-vertical-inner {
+		position:								relative;
+		height:									12px;
+		width:									27px;
+		margin:									1px;
+		&.one, &.two, &.three, &.four, &.five {
+			background-color:					@rcVerticalGreen;
+		}
+		&.six, &.seven, &.eight{
+			background-color:					@rcVerticalOrange;
+		}
+		&.nine, &.ten {
+			background-color:					@rcVerticalRed;
+		}
+	}
+}

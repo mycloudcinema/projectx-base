@@ -1,0 +1,56 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+<cache timeout="0"></cache>
+
+<div>
+
+	<table class="table rc-table" cellspacing="0" ng-if="viewMode=='list'">
+
+		<thead>
+			<tr class="first">
+				<th ng-repeat="col in data.columns" ng-if="col.property !== data.group_by.property" ng-class="{'primary-sort sorted ascending':firstOrderItem === col.property, 'primary-sort sorted descending':firstOrderItem === '-' + col.property, 'secondary-sort sorted ascending':secondOrderItem === col.property, 'secondary-sort sorted descending':secondOrderItem === '-'+col.property}" class="{{col.heading_class}}" style="width: {{col.width}}%" lr-drag-src="headers" lr-drop-target="headers" ng-click="applySort(col, $event);">
+					<span ng-bind="col.name"></span>
+					<i class="fa pull-right" ng-show="!col.noSort"></i>
+				</th>
+			</tr>
+		</thead>
+
+		<tbody ng-repeat-start="(key, value) in data.activeRows | groupBy:data.group_by.property" ng-if="data.group_by.property" class="rc-table-group-header" draggable="true" style="background-color: #F2F2F2">
+			<tr>
+				<th colspan="{{data.columns.length}}">{{key}}<button class="btn btn-xs btn-default pull-right" slide-toggle="row_{{$index}}" ng-click="groupHidden = !groupHidden"><i class="fa" ng-class="{'fa-chevron-left':groupHidden, 'fa-chevron-down':!groupHidden}"></i></button>
+				</th>
+			</tr>
+		</tbody>
+		<tbody ng-repeat-end id="row_{{$index}}">
+			<tr ng-repeat="row in value" ng-click="rowClick(row)" ng-class="rowClass()">
+				<td ng-repeat="col in data.columns" ng-if="col.property !== data.group_by.property" ng-class="col.class" bind-html-compile="col.template"> </td>
+			</tr>
+		</tbody>
+
+		<tfoot>
+			<tr class="rc-table-pagination" ng-if="!data.options.hidePagination">
+				<td colspan="{{data.columns.length + 1}}">
+					<div class="btn-group">
+						<button class="btn" ng-click="controls.first()" ng-disabled="((limitIndex / data.limit + 1) | floor) === 1"><i class="fa fa-fast-backward"></i></button>
+						<button class="btn" ng-click="controls.previous()" ng-disabled="(limitIndex / data.limit + 1) === 1"><i class="fa fa-backward"></i></button>
+					</div>
+					<div class="page-numbers">
+						{{limitIndex  / data.limit + 1 | floor}} / {{data.rows.length / data.limit  | ceil}} [$dict{row_count_pre} {{data.rows.length}} $dict{row_count_post}]
+					</div>
+					<div class="btn-group">
+						<button class="btn" ng-click="controls.next()" ng-disabled="((limitIndex / data.limit + 1) | floor) === (data.rows.length / data.limit | ceil)"><i class="fa fa-forward"></i></button>
+						<button class="btn" ng-click="controls.last()" ng-disabled="((limitIndex / data.limit + 1) | floor) === (data.rows.length / data.limit | ceil)"><i class="fa fa-fast-forward"></i></button>
+					</div>
+					<div class="btn-group pull-right">
+						<button class="btn" ng-class="{'row-limit':limit !== data.limit, 'row-limit-selected':limit === data.limit}" ng-click="controls.setLimit(limit)" ng-repeat="limit in data.limits track by $index" ng-bind="limit"></button>
+					</div>
+				</td>
+			</tr>
+		</tfoot>
+
+	</table>
+
+	<div ng-if="viewMode == 'grid'" ng-repeat="row in data.rows">
+		<ng-transclude></ng-transclude>
+	</div>
+
+</div>

@@ -1,0 +1,150 @@
+.rc-input {
+	div.text-container {
+		position:							relative;
+		.icon {
+			position:						absolute;
+			right:							4px;
+			top:							10px;
+		}
+		input {
+			width:							100%;
+			height:							100%;
+			-webkit-appearance:				none;
+			text-align:						inherit;
+			padding:						6px;
+			background:						white;
+			outline:						none;
+			box-sizing:						border-box;
+			-moz-box-sizing:				border-box;
+			-webkit-transition:				background ease 250ms;
+			-moz-transition:				background ease 250ms;
+			-ms-transition:					background ease 250ms;
+			-o-transition:					background ease 250ms;
+			transition:						background ease 250ms;
+			height:							auto !important;
+			border-radius:					5px !important;
+			border:							1px solid silver !important;
+		}
+		&.input-group {
+			input {
+				border-right:				none !important;
+				border-bottom-right-radius:	0px !important;
+				border-top-right-radius:	0px !important;
+			}
+			.input-group-addon {
+				border-bottom-right-radius:	5px !important;
+				border-top-right-radius:	5px !important;
+			}
+		}
+		input[type=number]::-webkit-inner-spin-button,
+		input[type=number]::-webkit-outer-spin-button {
+			-webkit-appearance:				none;
+			margin:							8px;
+		}
+		input[disabled] {
+			background-color:				#F9F9F9;
+			color:							grey;
+		}
+		div.focus {
+			position:						absolute;
+			bottom:							0px;
+			left:							0px;
+			width:							100%;
+			margin-top:						-1px;
+			height:							1px;
+			background:						transparent;
+			border-color:					transparent;
+			border-radius:					5px !important;
+			div {
+				border-radius:				5px !important;
+				position:					absolute;
+				z-index:					2;
+				width:						100%;
+				transform:					scale(0, 1);
+				-ms-transform:				scale(0, 1);
+				-webkit-transform:			scale(0, 1);
+				-o-transform:				scale(0, 1);
+				-moz-transform:				scale(0, 1);
+				height:						2px;
+				margin-top:					-1px;
+				background:					#2875c7;
+				-webkit-transition:			all ease 250ms;
+				-moz-transition:			all ease 250ms;
+				-ms-transition:				all ease 250ms;
+				-o-transition:				all ease 250ms;
+				transition:					all ease 250ms;
+			}
+		}
+	}
+	&.focus {
+		input,
+		button,
+		select {
+			background:						#DEE9FA !important;
+		}
+		div.focus {
+			div {
+				transform:					scale(1, 1) !important;
+				-ms-transform:				scale(1, 1) !important;
+				-webkit-transform:			scale(1, 1) !important;
+				-o-transform:				scale(1, 1) !important;
+				-moz-transform:				scale(1, 1) !important;
+			}
+		}
+		&.error {
+			input,
+			button,
+			select  {
+				background:					rgba(255, 0, 0, 0.125) !important;
+			}
+		}
+		&.ng-invalid:not(.ng-invalid-required) {
+			input,
+			button,
+			select {
+				background:					rgba(255, 0, 0, 0.125) !important;
+			}
+		}
+		&.ng-invalid-required {
+			input, button, select {
+				background:					rgba(255, 165, 0, 0.125) !important;
+			}
+		}
+	}
+	button, select {
+		border-radius:						5px !important;
+		-webkit-appearance:					none;
+	}
+	&.error {
+		div.focus {
+			div {
+				background:					red !important;
+			}
+		}
+	}
+	&.ng-invalid {
+		div.focus {
+			div {
+				background:					red !important;
+			}
+		}
+	}
+	&.ng-invalid-required {
+		div.focus {
+			div {
+				background:					orange !important;
+			}
+		}
+	}
+	&.form-control {
+		padding:							0px;
+		border:								none !important;
+	}
+	&.mini {
+		select {
+			font-size:						0.8em;
+			height:							25px;
+			padding:						5px;
+		}
+	}
+}

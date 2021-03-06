@@ -1,0 +1,56 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+<cache timeout="0"></cache>
+
+<div ng-class="{'dropup':dropUp, 'dropdown':!dropUp}">
+	<div class="input-group">
+		<div class="input-group-btn">
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-filter"></i> {{options.buttonLabel}} <span class="caret"></span></button>
+			<div ng-click="stopPropogation($event);" class="dropup dropdown-menu dropdown-menu-left remek-filter-dropdown" ng-class="{'up':dropUp, 'down':!dropUp}" style="width:{{filter.dropdown_width}}px" role="menu">
+				<div class="filter-body" ng-style="filterBodyStyle">
+					<ng-form name="filterForm">
+						<div class="row filter-section" ng-repeat="section in filter.options.filterSections">
+							<h3>{{section.heading}} <small class="hidden-xs" ng-if="!filter.options.useSmallVersion">{{section.secondaryText}}</small></h3>
+							<div class="form-group remek-form-group" ng-class="{'col-md-6':!filter.options.useSmallVersion, 'col-md-12':filter.options.useSmallVersion, 'has-error': filterForm[filterElement.filter_property].$invalid}" ng-include="getTemplateUrl(filterElement);" ng-repeat="filterElement in section.filters"></div>
+						</div>
+					</ng-form>
+				</div>
+				<div class="filter-footer">
+					<div class="row">
+						<div class="col-md-6 col-sm-6 hidden-xs" ng-if="!filter.options.useSmallVersion">
+							<div class="input-group input-group-sm" ng-if="filter.options.hasSave">
+								<span class="input-group-addon hidden-xs">Save as</span>
+								<input type="text" class="form-control" ng-model="filter.newFilterName"/>
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="button" ng-click="saveAs(filter.newFilterName);"><i class="fa fa-save"></i> </button>
+									<button class="btn btn-default" type="button" ng-click="deleteCustomFilter(filter.newFilterName);"><i class="fa fa-trash"></i> </button>
+								</span>
+							</div>
+						</div>
+						<div class="" ng-class="{'col-md-6 col-sm-6 col-xs-12':!filter.options.useSmallVersion, 'col-md-12':filter.options.useSmallVersion}">
+							<div class="btn-group btn-group-sm pull-right">
+								<button class="btn btn-default" ng-click="closeDropdown();">Close</button>
+								<button class="btn btn-default" ng-click="filter.clearFilter();">Clear</button>
+								<button class="btn btn-primary" ng-click="filter.doFilter();closeDropdown();" ng-bind="filter.options.btnFilter"></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button type="button" class="btn btn-default" placeholder="-" ng-if="filter.options.predefinedFilters" ng-model="filter.selected_filter_preset" ng-change="filter.updateFilter(filter.selected_filter_preset);" ng-if="!filter.options.useSmallVersion" data-animation="am-flip-x" bs-options="option as option.name for option in filter.options.filterPresets" bs-select>
+				<span class="caret"></span>
+			</button>
+		</div>
+		<input type="text" id="searchTerm" class="form-control" rc-enter="filter.doSearch(filter.main);" ng-model="filter.main" autofocus>
+		<div class="input-group-btn">
+			<button class="btn btn-default" ng-click="filter.doSearch(filter.main);"><i class="fa fa-search"></i> $dict{search}</button>
+			<button class="btn btn-default" ng-click="filter.doRefresh(filter.main);"><i class="fa fa-refresh" ng-class="{'fa-spin': $parent.searching || $parent.loadingRecent}"></i> $dict{refresh}</button>
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<span ng-if="displayStyle == 'recent'">$dict{recent_items}</span><span ng-if="displayStyle == 'all'">$dict{all_items}</span><span ng-if="displayStyle == 'search'">$dict{search_results}</span> <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu dropdown-menu-right">
+				<li><a href="#" ng-click="filter.doShowRecent()">$dict{recent_items}</a></li>
+				<li><a href="#" ng-click="filter.doShowAll()">$dict{all_items}</a></li>
+			</ul>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,159 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-bookmark"></i> $dict{general}
+		</div>
+		<div class="rc-form-body">
+
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{device_name}</div>
+				<div class="rc-form-data">
+					{{tab.entity.device_name}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{device_type}</div>
+				<div class="rc-form-data">
+					{{tab.entity.device_type_name}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{device_status}</div>
+				<div class="rc-form-data">
+					{{tab.entity.device_status_name}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{location}</div>
+				<div class="rc-form-data">
+					{{tab.entity.location_name}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{description}</div>
+				<div class="rc-form-data">
+					{{tab.entity.description}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{note}</div>
+				<div class="rc-form-data">
+					{{tab.entity.note}}
+				</div>
+			</div>
+		</div>
+
+		<div class="rc-form-heading">
+			<i class="fa fa-support"></i> $dict{support_info}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{teamviewer_id}</div>
+				<div class="rc-form-data">
+					{{tab.entity.config_json.teamviewer_id}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{teamviewer_password}</div>
+				<div class="rc-form-data">
+					{{tab.entity.config_json.teamviewer_password}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{device_id}</div>
+				<div class="rc-form-data">
+					{{tab.edit_entity.device_id}}
+				</div>
+			</div>
+		</div>
+
+		<part name="_templates/base/audit_info_view"></part>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{user_id}</div>
+				<div class="rc-form-data">
+					{{tab.entity.user_name}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{date_created}</div>
+				<div class="rc-form-data">
+					{{tab.entity.date_created | moment:'mediumDateTime' || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{ip_address}</div>
+				<div class="rc-form-data">
+					{{tab.entity.ip_address}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{active}</div>
+				<div class="rc-form-data">
+					<i ng-class='{"fa fa-check-circle-o": (tab.entity.active == true), "fa fa-circle-o": (tab.entity.active == false)}'></i>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit" ng-if="tab.entity.device_type_id == 1">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-print"></i> $dict{printers}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{printer}</div>
+				<div class="rc-form-data">
+					{{tab.entity.printer_name}}
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="rc-form rc-form-edit" ng-if="tab.entity.device_type_id == 2">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-print"></i> $dict{printer}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{printer_ip_address}</div>
+				<div class="rc-form-data">
+					{{tab.entity.config_json.printer_ip_address || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{printer_port}</div>
+				<div class="rc-form-data">
+					{{tab.entity.config_json.printer_port || '-'}}
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-globe"></i> $dict{technical_info}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<pre class="json_syntax" ng-bind-html="tab.entity.browser_config_syntax"></pre>
+			</div>
+		</div>
+
+	</div>
+
+</div>

@@ -1,0 +1,61 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-bookmark"></i> $dict{general}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{email_profile_name}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="email_profile_name" name="email_profile_name" class="form-control dataentry-data" ng-model="tab.edit_entity.email_profile_name"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{smtp_address}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="smtp_address" name="smtp_address" class="form-control dataentry-data" ng-model="tab.edit_entity.smtp_address"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{smtp_port_number}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="smtp_port_number" name="smtp_port_number" class="form-control dataentry-data" ng-model="tab.edit_entity.smtp_port_number"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{smtp_login}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="smtp_login" name="smtp_login" class="form-control dataentry-data" ng-model="tab.edit_entity.smtp_login"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{smtp_password}</div>
+				<div class="rc-form-data">
+					<text type="password" rc-id="smtp_password" name="smtp_password" class="form-control dataentry-data" ng-model="tab.edit_entity.smtp_password"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{active}</div>
+				<div class="rc-form-data">
+					<input type="checkbox" id="active" name="active" class="js-switch switchery-small" ui-switch="{size: 'small'}" ng-model="tab.edit_entity.active"/>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<part name="_templates/base/audit_info_edit"></part>
+
+	</div>
+
+</div>

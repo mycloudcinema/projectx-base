@@ -1,0 +1,12 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+<cache timeout="0"></cache>
+
+<div class="rc-image-select">
+	<div class="input-group">
+		<input type="{{type}}" class="form-control" ng-model="ngModel" placeholder="{{placeholder}}" />
+		<span class="input-group-addon pointer" ng-click="selectImage()"><i class="fa fa-plus-circle pointer"></i></span>
+	</div>
+	<div class="preview">
+		<img ng-src={{ngModel}} ng-if="ngModel" class="img-responsive">
+	</div>
+</div>

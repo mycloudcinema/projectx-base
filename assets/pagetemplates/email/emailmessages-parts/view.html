@@ -1,0 +1,115 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<div class="col-md-6">
+
+	<div class="rc-form">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-bookmark"></i> $dict{general}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{email_profile_id}</div>
+				<div class="rc-form-data">
+					{{tab.entity.email_profile_name || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{email_from}</div>
+				<div class="rc-form-data">
+					{{tab.entity.email_from || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{email_to}</div>
+				<div class="rc-form-data">
+					{{tab.entity.email_to || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{email_priority}</div>
+				<div class="rc-form-data">
+					<i ng-class='{"fa fa-check-circle-o": (tab.entity.email_priority == true), "fa fa-circle-o": (tab.entity.email_priority == false)}'></i>
+				</div>
+			</div>
+
+			<div class="rc-form-heading">
+				<i class="fa fa-cogs"></i> $dict{email_technical}
+			</div>
+			<div class="rc-form-body">
+				<div class="rc-form-group">
+					<div class="rc-form-prompt">$dict{date_added}</div>
+					<div class="rc-form-data">
+						{{tab.entity.date_added | moment:'userShortFormat' || '-'}}
+					</div>
+				</div>
+				<div class="rc-form-group">
+					<div class="rc-form-prompt">$dict{date_retry}</div>
+					<div class="rc-form-data">
+						{{tab.entity.date_retry | moment:'userShortFormat' || '-'}}
+					</div>
+				</div>
+				<div class="rc-form-group">
+					<div class="rc-form-prompt">$dict{retry_count}</div>
+					<div class="rc-form-data">
+						{{tab.entity.retry_count || '-'}}
+					</div>
+				</div>
+				<div class="rc-form-group">
+					<div class="rc-form-prompt">$dict{retry_max}</div>
+					<div class="rc-form-data">
+						{{tab.entity.retry_max || '-'}}
+					</div>
+				</div>
+				<div class="rc-form-group">
+					<div class="rc-form-prompt">$dict{date_sent}</div>
+					<div class="rc-form-data">
+						{{tab.entity.date_sent | moment:'userShortFormat' || '-'}}
+					</div>
+				</div>
+				<div class="rc-form-group">
+					<div class="rc-form-prompt">$dict{smtp_message_id}</div>
+					<div class="rc-form-data">
+						{{tab.entity.smtp_message_id || '-'}}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<part name="_templates/base/audit_info_view"></part>
+
+	</div>
+
+</div>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-envelope"></i> $dict{message}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{email_subject}</div>
+				<div class="rc-form-data">
+					{{tab.entity.email_subject || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{email_body}</div>
+				<div class="rc-form-data">
+					<div class="rc-form-group" ng-bind-html="tab.entity.email_body"></div>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{email_body_html}</div>
+				<div class="rc-form-data">
+					{{tab.entity.email_body_html || '-'}}
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>

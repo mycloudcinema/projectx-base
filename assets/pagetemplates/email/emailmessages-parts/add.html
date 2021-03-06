@@ -1,0 +1,100 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-bookmark"></i> $dict{general}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{email_profile_id}</div>
+				<div class="rc-form-data">
+					<rc-select ng-model="new_entity.email_profile_id" webservice="base/rc_emailprofiles/getEmailProfilesList" value="email_profile_id" label="email_profile_name" class="dataentry-data" required></rc-select>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{email_from}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="email_from" name="email_from" class="form-control dataentry-data" ng-model="new_entity.email_from" required></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{email_to}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="email_to" name="email_to" class="form-control dataentry-data" ng-model="new_entity.email_to" required></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{email_priority}</div>
+				<div class="rc-form-data">
+					<input type="checkbox" id="email_priority" name="email_priority" class="js-switch switchery-small" ui-switch="{size: 'small'}" ng-model="new_entity.email_priority"/>
+				</div>
+			</div>
+		</div>
+
+		<div class="rc-form-heading">
+			<i class="fa fa-cogs"></i> $dict{email_technical}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{date_retry}</div>
+				<div class="rc-form-data">
+					<rc-datepicker class="datepicker dataentry-data" id="date_retry" ng-model="new_entity.date_retry"></rc-datepicker>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{retry_count}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="retry_count" name="retry_count" class="form-control dataentry-data text-right" ng-model="new_entity.retry_count"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{retry_max}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="retry_max" name="retry_max" class="form-control dataentry-data text-right" ng-model="new_entity.retry_max"></text>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-envelope"></i> $dict{message}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{email_subject}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="email_subject" name="email_subject" class="form-control dataentry-data" ng-model="new_entity.email_subject" required></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{email_html_format}</div>
+				<div class="rc-form-data">
+					<input type="checkbox" id="email_html_format" name="email_html_format" class="js-switch switchery-small" ui-switch="{size: 'small'}" ng-model="new_entity.email_html_format"/>
+				</div>
+			</div>
+			<div class="rc-form-group" ng-if="!new_entity.email_html_format">
+				<div class="rc-form-prompt">$dict{email_body}</div>
+				<div class="rc-form-data">
+					<textarea id="email_body" name="email_body" class="form-control dataentry-data" ng-model="new_entity.email_body" rows="10"></textarea>
+				</div>
+			</div>
+			<div class="rc-form-group" ng-if="new_entity.email_html_format">
+				<div class="rc-form-prompt">$dict{email_body_html}</div>
+				<div class="rc-form-data">
+					<textarea style="height: 500px;" ui-tinymce="ctrl.con.tinymceOptions" id="email_body_html" rows="15" class="form-control dataentry-data" ng-model="new_entity.email_body_html"></textarea>
+				</div>
+			</div>
+
+	</div>
+
+</div>

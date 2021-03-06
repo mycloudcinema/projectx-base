@@ -1,0 +1,79 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-bookmark"></i> $dict{general}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{tour_language}</div>
+				<div class="rc-form-data">
+					{{tab.entity.tour_language || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{tour_step_page}</div>
+				<div class="rc-form-data">
+					{{tab.entity.tour_step_page || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{tour_step_order}</div>
+				<div class="rc-form-data">
+					{{tab.entity.tour_step_order || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{tour_step_element}</div>
+				<div class="rc-form-data">
+					{{tab.entity.tour_step_element || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{tour_step_placement}</div>
+				<div class="rc-form-data">
+					{{tab.entity.tour_step_placement || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{tour_step_options}</div>
+				<div class="rc-form-data">
+					{{tab.entity.tour_step_options || '-'}}
+				</div>
+			</div>
+		</div>
+
+		<part name="_templates/base/audit_info_view"></part>
+
+	</div>
+
+</div>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-bookmark"></i> $dict{general}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{tour_step_title}</div>
+				<div class="rc-form-data">
+					{{tab.entity.tour_step_title || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{tour_step_details}</div>
+				<div class="rc-form-data">
+					{{tab.entity.tour_step_details || '-'}}
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>

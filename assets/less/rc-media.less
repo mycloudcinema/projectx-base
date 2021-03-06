@@ -1,0 +1,295 @@
+/* Generic */
+@minWidth:										0px;
+@phoneMaxWidth:									667px;
+@tabletMinWidth:								668px;
+@tabletMaxWidth:								1024px;
+@desktopMinWidth:								1025px;
+@desktopXLMinWidth:								1600px;
+
+/* iPads */
+@iPadMinWidth:									768px;
+@iPadMaxWidth:									1024px;
+@iPad1MinWidth:									768px;
+@iPad1MaxWidth:									1024px;
+@iPad3MinWidth:									768px;
+@iPad3MaxWidth:									1024px;
+@iPadMiniMinWidth:								768px;
+@iPadMiniMaxWidth:								1024px;
+
+/* iPhones */
+@iPhone6MinWidth:								375px;
+@iPhone6MaxWidth:								667px;
+@iPhone6PlusMinWidth:							414px;
+@iPhone6PlusMaxWidth:							736px;
+@iPhone5MinWidth:								320px;
+@iPhone5MaxWidth:								568px;
+@iPhone2MinWidth:								320px;
+@iPhone2MaxWidth:								480px;
+
+/**
+ * Orientation Queries
+ */
+// @media only screen and (max-device-width: @minWidth) and (orientation : portrait) {
+@media (orientation : portrait) {
+	.visible-portrait {
+		display:								block !important;
+	}
+	.hidden-portrait {
+		display:								none;
+	}
+	.hidden-landscape {
+		display:								none;
+	}
+}
+// @media only screen and (max-device-width: @minWidth) and (orientation : landscape) {
+@media (orientation : landscape) {
+	.visible-landscape {
+		display:								block !important;
+	}
+	.hidden-landscape {
+		display:								none;
+	}
+	.hidden-portrait {
+		display:								none;
+	}
+ }
+
+/**
+ * Generic Phone
+ */
+.hidden-phone, .hidden-phone-landscape, .hidden-phone-portrait, .visible-phone, .visible-phone-landscape, .visible-phone-portrait {
+	display:									none;
+}
+@media only screen and (max-device-width: @phoneMaxWidth) {
+	.visible-phone {
+		display:								block !important;
+	}
+}
+@media only screen and (max-device-width: @phoneMaxWidth) and (orientation : portrait) {
+	.visible-phone-portrait {
+		display:								block !important;
+	}
+}
+@media only screen and (max-device-width: @phoneMaxWidth) and (orientation : landscape) {
+	.visible-phone-landscape {
+		display:								block !important;
+	}
+}
+
+/**
+ * Generic Tablet
+ */
+.hidden-tablet, .hidden-tablet-landscape, .hidden-tablet-portrait, .visible-tablet, .visible-tablet-landscape, .visible-tablet-portrait {
+	display:									none;
+}
+@media only screen and (min-device-width: @tabletMinWidth) and (max-device-width: @tabletMaxWidth) {
+	.visible-tablet {
+		display:								block !important;
+	}
+}
+@media only screen and (min-device-width: @tabletMinWidth) and (max-device-width: @tabletMaxWidth) and (orientation : portrait) {
+	.visible-tablet-portrait {
+		display:								block !important;
+	}
+}
+@media only screen and (min-device-width: @tabletMinWidth) and (max-device-width: @tabletMaxWidth) and (orientation : landscape) {
+	.visible-tablet-landscape {
+		display:								block !important;
+	}
+}
+
+/**
+ * Generic Desktop
+ */
+.hidden-desktop, .visible-desktop {
+	display:									none;
+}
+@media only screen and (min-device-width: @desktopMinWidth) {
+	.visible-desktop {
+		display:								block !important;
+	}
+}
+.hidden-desktop-xl, .visible-desktop-xl {
+	display:									none;
+}
+@media only screen and (min-device-width: @desktopXLMinWidth) {
+	.visible-desktop-xl {
+		display:								block !important;
+	}
+}
+
+/**
+ * iPad
+ */
+.hidden-ipad, .hidden-ipad-landscape, .hidden-ipad-portrait, .visible-ipad, .visible-ipad-landscape, .visible-ipad-portrait {
+	display:									none;
+}
+@media only screen and (min-device-width: @iPadMinWidth) and (max-device-width: @iPadMaxWidth) {
+	.visible-ipad {
+		display:								block !important;
+	}
+}
+@media only screen and (min-device-width: @iPadMinWidth) and (max-device-width: @iPadMaxWidth) and (orientation : portrait) {
+	.visible-ipad-portrait {
+		display:								block !important;
+	}
+}
+@media only screen and (min-device-width: @iPadMinWidth) and (max-device-width: @iPadMaxWidth) and (orientation : landscape) {
+	.visible-ipad-landscape {
+		display:								block !important;
+	}
+}
+
+/**
+ * iPad 1 & 2
+ */
+.hidden-ipad1, .hidden-ipad1-landscape, .hidden-ipad1-portrait, .visible-ipad1, .visible-ipad1-landscape, .visible-ipad1-portrait {
+	display:									none;
+}
+@media only screen and (min-device-width: @iPad1MinWidth) and (max-device-width: @iPad1MaxWidth) and (-webkit-min-device-pixel-ratio: 1) {
+	.visible-ipad1 {
+		display:								block !important;
+	}
+}
+@media only screen and (min-device-width: @iPad1MinWidth) and (max-device-width: @iPad1MaxWidth) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 1) {
+	.visible-ipad1-portrait {
+		display:								block !important;
+	}
+}
+@media only screen and (min-device-width: @iPad1MinWidth) and (max-device-width: @iPad1MaxWidth) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 1) {
+	.visible-ipad1-landscape {
+		display:								block !important;
+	}
+}
+
+/**
+ * iPad 3 & 4
+ */
+.hidden-ipad3, .hidden-ipad3-landscape, .hidden-ipad3-portrait, .visible-ipad3, .visible-ipad3-landscape, .visible-ipad3-portrait {
+	display:									none;
+}
+@media only screen and (min-device-width: @iPad3MinWidth) and (max-device-width: @iPad3MaxWidth) and (-webkit-min-device-pixel-ratio: 2) {
+	.visible-ipad3 {
+		display:								block !important;
+	}
+}
+@media only screen and (min-device-width: @iPad3MinWidth) and (max-device-width: @iPad3MaxWidth) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 2) {
+	.visible-ipad3-portrait {
+		display:								block !important;
+	}
+}
+@media only screen and (min-device-width: @iPad3MinWidth) and (max-device-width: @iPad3MaxWidth) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 2) {
+	.visible-ipad3-landscape {
+		display:								block !important;
+	}
+}
+
+/**
+ * iPad Mini
+ */
+.hidden-ipadmini, .hidden-ipadmini-landscape, .hidden-ipadmini-portrait, .visible-ipadmini, .visible-ipadmini-landscape, .visible-ipadmini-portrait {
+	display:									none;
+}
+@media only screen and (min-device-width: @iPadMiniMinWidth) and (max-device-width: @iPadMiniMaxWidth) and (-webkit-min-device-pixel-ratio: 1) {
+	.visible-ipadmini {
+		display:								block !important;
+	}
+}
+@media only screen and (min-device-width: @iPadMiniMinWidth) and (max-device-width: @iPadMiniMaxWidth) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 1) {
+	.visible-ipadmini-portrait {
+		display:								block !important;
+	}
+}
+@media only screen and (min-device-width: @iPadMiniMinWidth) and (max-device-width: @iPadMiniMaxWidth) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 1) {
+	.visible-ipadmini-landscape {
+		display:								block !important;
+	}
+}
+
+/**
+ * iPhone 6
+ */
+.hidden-iphone6, .hidden-iphone6-landscape, .hidden-iphone6-portrait, .visible-iphone6, .visible-iphone6-landscape, .visible-iphone6-portrait {
+	display:									none;
+}
+@media only screen and (min-device-width: @iPhone6MinWidth) and (max-device-width: @iPhone6MaxWidth) {
+	.visible-iphone6 {
+		display:								block !important;
+	}
+}
+@media only screen and (min-device-width: @iPhone6MinWidth) and (max-device-width: @iPhone6MaxWidth) and (orientation : portrait) {
+	.visible-iphone6-portrait {
+		display:								block !important;
+	}
+}
+@media only screen and (min-device-width: @iPhone6MinWidth) and (max-device-width: @iPhone6MaxWidth) and (orientation : landscape) {
+	.visible-iphone6-landscape {
+		display:								block !important;
+	}
+}
+
+/**
+ * iPhone 6 Plus
+ */
+.hidden-iphone6plus, .hidden-iphone6plus-landscape, .hidden-iphone6plus-portrait, .visible-iphone6plus, .visible-iphone6plus-landscape, .visible-iphone6plus-portrait {
+	display:									none;
+}
+@media only screen and (min-device-width: @iPhone6PlusMinWidth) and (max-device-width: @iPhone6PlusMaxWidth) {
+	.visible-iphone6plus {
+		display:								block !important;
+	}
+}
+@media only screen and (min-device-width: @iPhone6PlusMinWidth) and (max-device-width: @iPhone6PlusMaxWidth) and (orientation : portrait) {
+	.visible-iphone6plus-portrait {
+		display:								block !important;
+	}
+}
+@media only screen and (min-device-width: @iPhone6PlusMinWidth) and (max-device-width: @iPhone6PlusMaxWidth) and (orientation : landscape) {
+	.visible-iphone6plus-landscape {
+		display:								block !important;
+	}
+}
+
+/**
+ * iPhone 5 & 5s
+ */
+.hidden-iphone5, .hidden-iphone5-landscape, .hidden-iphone5-portrait, .visible-iphone5, .visible-iphone5-landscape, .visible-iphone5-portrait {
+	display:									none;
+}
+@media only screen and (min-device-width: @iPhone6MinWidth) and (max-device-width: @iPhone6MaxWidth) {
+	.visible-iphone5 {
+		display:								block !important;
+	}
+}
+@media only screen and (min-device-width: @iPhone6MinWidth) and (max-device-width: @iPhone6MaxWidth) and (orientation : portrait) {
+	.visible-iphone5-portrait {
+		display:								block !important;
+	}
+}
+@media only screen and (min-device-width: @iPhone6MinWidth) and (max-device-width: @iPhone6MaxWidth) and (orientation : landscape) {
+	.visible-iphone5-landscape {
+		display:								block !important;
+	}
+}
+
+/**
+ * iPhone 2G, 3G, 4 & 4S
+ */
+.hidden-iphone2, .hidden-iphone2-landscape, .hidden-iphone2-portrait, .visible-iphone2, .visible-iphone2-landscape, .visible-iphone2-portrait {
+	display:									none;
+}
+@media only screen and (min-device-width: @iPhone2MinWidth) and (max-device-width: @iPhone2MaxWidth) {
+	.visible-iphone2 {
+		display:								block !important;
+	}
+}
+@media only screen and (min-device-width: @iPhone2MinWidth) and (max-device-width: @iPhone2MaxWidth) and (orientation : portrait) {
+	.visible-iphone2-portrait {
+		display:								block !important;
+	}
+}
+@media only screen and (min-device-width: @iPhone2MinWidth) and (max-device-width: @iPhone2MaxWidth) and (orientation : landscape) {
+	.visible-iphone2-landscape {
+		display:								block !important;
+	}
+}

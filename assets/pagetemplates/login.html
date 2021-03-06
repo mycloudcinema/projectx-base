@@ -1,0 +1,65 @@
+<base-template name="_templates/basic_template"></base-template>
+<cache timeout="0s"></cache>
+
+<resource name="LanguagesEntity"></resource>
+
+<resource name="AngularJS_Switchery"></resource>
+<resource name="Crypto"></resource>
+
+<link rel="stylesheet" href="/public/css/base/rc-login.min.css"/>
+
+<div id="page-container" class="wrapper">
+
+	<nav id="sidebar" class="sidebar-large">
+
+		<div class="sidebar-header">
+			<h3>
+				<a href="#">
+					<img src="/public/images/logos/application_32_white.png"/> $dict{login_header}
+				</a>
+			</h3>
+		</div>
+
+		<div ng-controller="LoginController as con" ng-cloak="">
+
+			<form class="login" id="login_form">
+
+				<div class="form-group">
+					<label for="username">$dict{email_address}</label>
+					<input type="text" class="form-control" id="username" placeholder="$dict{enterusername}" ng-model="con.username" autocomplete="on" autocorrect="off" tabindex="1" autofocus>
+				</div>
+				<div class="form-group">
+					<label for="password">$dict{password}</label>
+					<input type="password" class="form-control" id="password" placeholder="$dict{enterpassword}" ng-model="con.password" autocomplete="on" autocorrect="off" tabindex="2">
+				</div>
+<!--
+				<input ng-if="!con.device.config.onscreen_keyboard" type="text" id="username" name="username" ng-model="con.username" autocomplete="on" autocorrect="off" placeholder="$dict{enterusername}" autofocus tabindex="1"/>
+				<input ng-if="!con.device.config.onscreen_keyboard" type="password" id="password" name="password" ng-model="con.password" autocomplete="on" autocorrect="off" placeholder="$dict{enterpassword}" tabindex="2"/>
+
+				<text ng-if="con.device.config.onscreen_keyboard" id="username" rc-keybr="{{con.language}}" rc-focus="true" rc-id="username" type="text" ng-model="con.username" class="form-control" placeholder="$dict{enterusername}" autofocus autocomplete="off" tabindex="1"></text>
+				<text ng-if="con.device.config.onscreen_keyboard" id="password" rc-keybr="{{con.language}}" rc-focus="true" rc-id="password" type="password" ng-model="con.password" class="form-control" placeholder="$dict{enterpassword}" tabindex="2" autocomplete="off"></text>
+-->
+				<label for="remember" class="checkbox">
+					<input id="remember" type="checkbox" class="js-switch switchery" ui-switch="{size: 'small'}" ng-model="con.remember" value="true"> $dict{remember_me}
+				</label>
+<!--
+				<label for="remember" class="checkbox" style="margin-left: 20px;">
+					<input type="checkbox" id="remember" ng-model="con.remember" value="true"> $dict{remember_me}
+				</label>
+-->
+
+				<button class="btn btn-success" ng-click="con.login()" tabindex="3">$dict{login}</button>
+
+			</form>
+
+		</div>
+
+	</nav>
+
+	<div id="content" class="content">
+
+		<h1><img src="/public/images/logos/application_128.png"/> $dict{software_title} <small>$config{version.number}</small></h1>
+
+	</div>
+
+</div>

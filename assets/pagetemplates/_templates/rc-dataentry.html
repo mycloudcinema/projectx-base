@@ -1,0 +1,134 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+<cache timeout="0"></cache>
+
+<uib-tabset active="currentTab">
+
+	<!-- <div ng-if="dataEntryOptions.exportEnabled && recentList.rows.length > 0 && dataEntryOptions.exportOptions" ng-click="exportRecent('csv');" class="exportRecent"><i class="fa fa-download"></i> {{dataEntryOptions.exportOptions.buttonLabelRecent}}</div> -->
+	<!-- <div ng-if="dataEntryOptions.exportEnabled && searchList.rows.length > 0 && dataEntryOptions.exportOptions" ng-click="exportSearch('csv');" class="exportRecent"><i class="fa fa-download"></i> {{dataEntryOptions.exportOptions.buttonLabelSearch}}</div> -->
+
+	<uib-tab ng-if="!dataEntryOptions.add_hidden">
+
+		<uib-tab-heading><i class="fa fa-plus"></i> $dict{add_new}</uib-tab-heading>
+
+		<ng-form name="addNewEntityForm" class="form-horizontal">
+
+			<div class="row add-new-entry">
+				<div class="col-lg-8 col-md-6">
+					<h3>$dict{add_new_entry}</h3>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="btn-group pull-right">
+						<button class="btn btn-primary" type="button" ng-click="addNewEntity();" ng-disabled="addNewEntityForm.$invalid"><i class="fa" ng-class="{'fa-circle-o-notch fa-spin':add_loading, 'fa-plus':!add_loading}"></i> $dict{add}</button>
+						<button class="btn btn-default" type="button" ng-click="new_entity = {};"><i class="fa fa-eraser"></i> $dict{clear}</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<ng-include src="templateAdd"></ng-include>
+			</div>
+
+		</ng-form>
+
+	</uib-tab>
+
+	<uib-tab ng-if="!dataEntryOptions.recent_hidden">
+
+		<uib-tab-heading><i class="fa fa-list" ng-show="!loadingRecent && !loadingAll"></i> <i class="fa fa-circle-o-notch fa-spin" ng-show="loadingRecent || loadingAll"></i> </uib-tab-heading>
+
+		<div class="row multi_view" ng-if="dataEntryOptions.multi_view">
+			<div class="col-xs-12 text-right">
+				<div class="input-group-btn">
+					<button class="btn btn-default btn-sm" type="button" ng-click="toggleViewMode('list')" ng-class="{'btn-primary': viewMode == 'list'}"><i class="fa fa-list"></i></button>
+					<button class="btn btn-default btn-sm" type="button" ng-click="toggleViewMode('grid')" ng-class="{'btn-primary': viewMode == 'grid'}"><i class="fa fa-th"></i></button>
+				</div>
+			</div>
+		</div>
+
+		<div class="search-container" ng-show="!dataEntryOptions.search_hidden">
+
+			<div ng-if="!filterOptions">
+
+				<div class="input-group">
+					<input id="searchTerm" ng-model="searchTerm" type="text" rc-enter="searchDataEntry(searchTerm);" class="form-control" placeholder="$dict{enter_search_term}">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button" rc-enter="searchDataEntry(searchTerm);" ng-click="searchDataEntry(searchTerm)"><i class="fa fa-search"></i> $dict{search}</button>
+						<button class="btn btn-default" type="button" ng-click="refreshDataEntry(searchTerm)"><i class="fa fa-refresh" ng-class="{'fa-spin': searching || loadingRecent}"></i> $dict{refresh}</button>
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-if="!dataEntryOptions.dropdownHidden">
+							<span ng-if="displayStyle == 'recent'">$dict{recent_items}</span><span ng-if="displayStyle == 'all'">$dict{all_items}</span><span ng-if="displayStyle == 'search'">$dict{search_results}</span> <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu dropdown-menu-right" ng-if="!dataEntryOptions.dropdownHidden">
+							<li><a href="#" ng-click="showRecent()">$dict{recent_items}</a></li>
+							<li><a href="#" ng-click="showAll()">$dict{all_items}</a></li>
+						</ul>
+					</span>
+				</div>
+
+			</div>
+
+			<rc-filter rc-disable-watcher ng-if="filterOptions" filter-options="filterOptions" on-filter="searchDataEntry" on-search="searchDataEntry" on-clear-filter="clearFilter" on-refresh="refreshDataEntry" on-show-recent="showRecent" on-show-all="showAll"></rc-filter>
+			<rc-table rc-disable-watcher ng-if="searchList.rows.length > 0 && !searching" class="table table-striped" controls="dec.controls" collection="searchList" row-class="rowClass" row-click="rowClick" view-mode="viewMode" refreshing="refreshing">
+				<ng-transclude></ng-transclude>
+			</rc-table>
+
+			<div class="warning-dialogs">
+				<div class="alert alert-warning" ng-if="!searching && lastSearchTerm && searchList.rows.length === 0">$dict{no_items_found} <span ng-bind="lastSearchTerm"></span></div>
+				<div class="alert alert-warning" ng-if="!searching && lastSearchObject && searchList.rows.length === 0">$dict{no_items_filtered}</div>
+				<div class="alert alert-info" ng-if="searching">$dict{searching}</div>
+			</div>
+
+		</div>
+
+		<div ng-show="dataEntryOptions.search_hidden || (!lastSearchTerm && !lastSearchObject)">
+			<rc-table ng-if="recentList.rows.length > 0 && !searching" class="table table-condensed table-striped table-hover" controls="dec.controls" collection="recentList" row-class="rowClass" row-click="rowClick" view-mode="viewMode" refreshing="refreshing">
+				<ng-transclude></ng-transclude>
+			</rc-table>
+			<div class="warning-dialogs">
+				<div class="alert alert-warning" ng-if="recentList.rows.length === 0 && !loadingRecent && !searching && !loadingAll">$dict{no_recent_items}</div>
+				<div class="alert alert-info" ng-if="loadingRecent">$dict{loading_recent_items}</div>
+				<div class="alert alert-info" ng-if="loadingAll">$dict{loading_all_items}</div>
+			</div>
+		</div>
+
+	</uib-tab>
+
+	<uib-tab sortable-tab ng-repeat="tab in tabs track by $index" class="article" no-href>
+
+		<uib-tab-heading>
+			<span ng-bind="tab.name" style="margin-right: 5px"></span>
+			<!--<i class="fa fa-thumb-tack" ng-click="tab.pin($event)"></i>-->
+			<i class="fa fa-times-circle-o pointer" ng-click="closeTab($event, $index)"></i>
+		</uib-tab-heading>
+
+		<div ng-if="tab.loading" class="text-center" style="position: absolute; z-index: 50; width: 100%; height: 100%; background-color: white">
+			<i class="fa fa-circle-o-notch fa-4x fa-spin" style="margin-top: 50px;"></i>
+		</div>
+
+		<div class="row edit-entry">
+			<div class="col-lg-8 col-md-6">
+				<h3 ng-show="!dataEntryOptions.hideHeader">{{tab.name}}</h3>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="btn-group pull-right dataentry-actions">
+					<button class="btn btn-primary" ng-if="!tab.editMode && !dataEntryOptions.editDisabled" ng-click="tab.edit();"><i class="fa fa-pencil-square-o"></i> $dict{edit}</button>
+					<button class="btn btn-default" ng-if="!tab.editMode" ng-click="tab.refresh();"><i class="fa fa-refresh"></i> $dict{refresh}</button>
+					<button class="btn btn-primary" ng-if="tab.editMode && !dataEntryOptions.editDisabled" ng-click="tab.save();"><i class="fa fa-floppy-o"></i> $dict{save}</button>
+					<button class="btn btn-default" ng-if="tab.editMode && !dataEntryOptions.editDisabled" ng-click="tab.cancel();">$dict{cancel}</button>
+					<button class="btn btn-default" ng-if="tab.editMode && !dataEntryOptions.deleteDisabled" ng-click="tab.del();"><i class="fa fa-trash-o"></i> $dict{delete}</button>
+				</div>
+			</div>
+		</div>
+
+		<br/>
+
+		<form class="row" ng-if="tab.editMode" watchers-toggler>
+			<ng-include src="templateEdit"></ng-include>
+		</form>
+
+		<div class="row" ng-if="!tab.editMode">
+			<ng-include src="templateView"></ng-include>
+		</div>
+
+	</uib-tab>
+
+</uib-tabset>

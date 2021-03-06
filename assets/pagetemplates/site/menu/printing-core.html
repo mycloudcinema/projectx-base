@@ -1,0 +1,12 @@
+<access functions="/base/printing/printdefinitionformats,/base/printing/printdefinitions,/base/printing/printdefinitiontypes">
+
+	<li id="menuPrintingCore">
+		<a href="#printingCoreSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-print"></i> $dict{printing_core} <span class="caret"></span></a>
+		<ul class="collapse list-unstyled" id="printingCoreSubmenu">
+			<access functions="/base/printing/printdefinitionformats"><li id="menuPrintDefinitionFormats"><a href="/base/printing/printdefinitionformats"><span>$dict{print_definition_formats}</span></a></li></access>
+			<access functions="/base/printing/printdefinitions"><li id="menuPrintDefinitions"><a href="/base/printing/printdefinitions"><span>$dict{print_definitions}</span></a></li></access>
+			<access functions="/base/printing/printdefinitiontypes"><li id="menuPrintDefinitionTypes"><a href="/base/printing/printdefinitiontypes"><span>$dict{print_definition_types}</span></a></li></access>
+		</ul>
+	</li>
+
+</access>

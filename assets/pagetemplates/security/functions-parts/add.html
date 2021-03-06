@@ -1,0 +1,27 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<div class="row">
+    <div class="col-md-8">
+		<div class="form-group">
+			<label for="site_name" class="col-sm-3 control-label">$dict{site_name}</label>
+			<div class="col-sm-9">
+				<rc-select ng-model="$parent.$parent.$parent.new_entity.site_name" webservice="base/rc_sites/getSitesList" value="site_name" label="site_name"></rc-select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="function_name" class="col-sm-3 control-label">$dict{function_name}</label>
+			<div class="col-sm-9">
+				<input type="textbox" class="form-control" id="function_name" ng-model="$parent.$parent.$parent.new_entity.function_name"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="public_function" class="col-sm-3 control-label">$dict{public_function}</label>
+			<div class="col-sm-9">
+				<input type="checkbox" class="form-control" id="public_function" ng-model="$parent.$parent.$parent.new_entity.public_function"/>
+			</div>
+		</div>
+
+    </div>
+    <div class="col-md-8">
+    </div>
+</div>

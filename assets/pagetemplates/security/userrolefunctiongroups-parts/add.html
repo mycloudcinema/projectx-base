@@ -1,0 +1,21 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<div class="row">
+    <div class="col-md-8">
+		<div class="form-group">
+			<label for="user_role_id" class="col-sm-3 control-label">$dict{user_role}</label>
+			<div class="col-sm-9">
+				<rc-select ng-model="$parent.$parent.$parent.new_entity.user_role_id" webservice="rc_userroles/getUserRolesList" value="user_role_id" label="user_role_name"></rc-select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="function_group_id" class="col-sm-3 control-label">$dict{function_group}</label>
+			<div class="col-sm-9">
+				<rc-select ng-model="$parent.$parent.$parent.new_entity.function_group_id" webservice="rc_functiongroups/getFunctionGroupsList" value="function_group_id" label="function_group_name"></rc-select>
+			</div>
+		</div>
+
+    </div>
+    <div class="col-md-8">
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-bookmark"></i> $dict{general}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{tour_language}</div>
+				<div class="rc-form-data">
+					<rc-select ng-model="new_entity.tour_language" webservice="base/rc_languages/getLanguagesList" value="language" label="language_name"></rc-select>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{tour_step_page}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="tour_step_page" name="tour_step_page" class="form-control dataentry-data" ng-model="new_entity.tour_step_page"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{tour_step_order}</div>
+				<div class="rc-form-data">
+					<text type="number" rc-id="tour_step_order" name="tour_step_order" class="form-control dataentry-data" ng-model="new_entity.tour_step_order"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{tour_step_element}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="tour_step_element" name="tour_step_element" class="form-control dataentry-data" ng-model="new_entity.tour_step_element"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{tour_step_placement}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="tour_step_placement" name="tour_step_placement" class="form-control dataentry-data" ng-model="new_entity.tour_step_placement"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{tour_step_options}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="tour_step_options" name="tour_step_options" class="form-control dataentry-data" ng-model="new_entity.tour_step_options"></text>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-bookmark"></i> $dict{tour_step_details}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{tour_step_title}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="tour_step_title" name="tour_step_title" class="form-control dataentry-data" ng-model="new_entity.tour_step_title"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<textarea ui-tinymce="ctrl.con.tinymceOptions" id="tour_step_details" rows="5" class="form-control dataentry-data" ng-model="new_entity.tour_step_details"></textarea>
+			</div>
+		</div>
+
+	</div>
+
+</div>

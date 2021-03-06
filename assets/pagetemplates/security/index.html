@@ -1,0 +1,55 @@
+<base-template name="_templates/base_template"></base-template>
+<cache timeout="0"></cache>
+
+<resource name="FunctionsEntity"></resource>
+<resource name="FunctionGroupsEntity"></resource>
+<resource name="FunctionGroupFunctionsEntity"></resource>
+<resource name="UserRolesEntity"></resource>
+
+<resource name="AngularJS_Filters"></resource>
+
+<resource name="rcWebservice"></resource>
+<resource name="rcTable"></resource>
+<resource name="rcDataEntry"></resource>
+
+<resource name="SecurityStyles"></resource>
+
+<div id="security_manager" ng-controller="SecurityController as security" ng-cloak dropzone>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<div class=" pull-right">
+				<access functions="security/reload">
+					<button class="btn btn-default" ng-click="security.reloadSecurity();"><i class="fa fa-refresh"></i> $dict{reload_security}</button>
+				</access>
+				<access functions="base/rc_security/setFunctionGroupFunctions">
+					<button class="btn btn-default" ng-click="security.newFunctionGroup();"><i class="fa fa-plus-circle"></i> $dict{new_function_group}</button>
+				</access>
+				<access functions="base/rc_security/setUserRoleFunctionGroups">
+					<button class="btn btn-primary" ng-click="security.saveUserRoleFunctiongroups()"><i class="fa fa-floppy-o"></i> $dict{save_changes}</button>
+				</access>
+			</div>
+		</div>
+	</div>
+
+	<div class="row clearfix">
+
+		<div class="col-md-12" ng-bind="roles">
+		</div>
+
+		<div class="col-md-12">
+
+			<div class="filter-container">
+				<div class="btn-group">
+					<button type="button" class="btn btn-default" ng-repeat="role in roles" ng-model="role.visible" btn-checkbox>{{role.userrole_name}}
+					</button>
+				</div>
+			</div>
+
+			<rc-table ng-mousedown="security.mousedown()" ng-mouseup="security.mouseup()" ng-if="security.data" controls="security.controls" collection="security.data" view-mode="list"></rc-table>
+
+		</div>
+
+	</div>
+
+</div>

@@ -1,0 +1,98 @@
+/*
+ ____                     _
+|  _ \ ___ _ __ ___   ___| | __
+| |_) / _ \ '_ ` _ \ / _ \ |/ /
+|  _ <  __/ | | | | |  __/   <
+|_| \_\___|_| |_| |_|\___|_|\_\
+
+  ____                      _ _   _
+ / ___|___  _ __  ___ _   _| | |_(_)_ __   __ _
+| |   / _ \| '_ \/ __| | | | | __| | '_ \ / _` |
+| |__| (_) | | | \__ \ |_| | | |_| | | | | (_| |
+ \____\___/|_| |_|___/\__,_|_|\__|_|_| |_|\__, |
+                                          |___/
+
+Defines the styles used inside the Framework Applications
+*/
+
+@boldWeight:						500;
+@normalWeight:						400;
+
+@import "rc-variables.less";
+
+body, html {
+	.baseFontFace();
+}
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	.baseFontFace();
+}
+
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+}
+
+
+#sidebar {
+	border-right:					1px solid silver;
+	min-height:						100%;
+}
+#content {
+	padding-bottom:					@footerHeight;
+}
+#pageTitle {
+	border-bottom:					1px solid silver;
+}
+
+.panel-remek {
+	margin-top:						20%;
+	background:						none;
+	border:							none;
+	color:							@rcSecondaryFG;
+	.panel-heading {
+		background-color:			rgba(0, 0, 0, 0.99);
+		border:						none;
+		color:						@rcSecondaryFG;
+		font-size:					1.6em;
+	}
+	.panel-body {
+		background-color:			rgba(0, 0, 0, 0.66);
+	}
+	.panel-footer {
+		border:						none;
+		background-color:			rgba(0, 0, 0, 0.66);
+	}
+}
+
+.pointer {
+	cursor:							pointer;
+}
+
+footer.copyright {
+	background-color:				rgba(0, 0, 0, 0.66);
+	color:							#FFF;
+	height:							@footerHeight;
+	padding:						10px;
+	a {
+		color:						@rcSecondaryFG;
+	}
+	a:hover {
+		color:						@rcSecondaryFGHover;
+	}
+}
+
+@import "rc-dataentry.less";
+@import "rc-growl.less";
+@import "rc-lightbox.less";
+@import "rc-separators.less";
+@import "rc-table.less";

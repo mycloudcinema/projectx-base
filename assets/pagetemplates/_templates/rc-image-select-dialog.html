@@ -1,0 +1,42 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+<cache timeout="0"></cache>
+
+<div class="modal-header">
+	<button type="button" class="close" aria-label="Close" ng-click="close();"><span aria-hidden="true">&times;</span></button>
+	<h4 class="modal-title">{{options.dialog_title}}</h4>
+</div>
+
+<div class="modal-body">
+
+	<div ng-show="options.summary" class="alert alert-info">{{options.summary}}</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<text type="textbox" ng-model="searchText" placeholder="$dict{search_image_list}"/>
+		</div>
+	</div>
+
+	<div class="row">
+
+		<div class="col-xs-8">
+			<rc-table class="table table-condensed table-striped table-hover" controls="controls" collection="mediaData" ng-if="mediaData" view-mode="list"></rc-table>
+		</div>
+
+		<div class="col-xs-4">
+			<div ng-show="previewFile">
+				<div class="well">
+					<image ng-src="{{previewFile}}" class="img-responsive" style="max-height: 300px;"/>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+<div class="modal-footer">
+	<div class="btn-group">
+		<button class="btn btn-default" ng-click="close()">$dict{close}</button>
+		<button class="btn btn-primary" ng-click="select();" ng-disabled="!selectedMedia">$dict{select}</button>
+	</div>
+</div>

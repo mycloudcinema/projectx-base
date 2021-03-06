@@ -1,0 +1,172 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<div class="col-xs-12">
+	<button class="btn btn-default pull-right" ng-click="ctrl.con.identifyDevice(tab.edit_entity)" ng-disabled="tab.edit_entity.identifying || tab.edit_entity.resetting || !tab.edit_entity.device_id"><span class="fa" ng-class="{'fa-refresh fa-spin': tab.edit_entity.identifying, 'fa-lightbulb-o': !tab.edit_entity.identifying}"></span> $dict{identify_device}</button>
+	<button class="btn btn-default pull-right" ng-click="ctrl.con.resetDevice(tab.edit_entity)" ng-disabled="tab.edit_entity.resetting || !tab.edit_entity.device_id"><span class="fa fa-refresh" ng-class="{'fa-spin': tab.edit_entity.resetting}"></span> $dict{reset}</button>
+	<button class="btn btn-default pull-right" ng-click="ctrl.con.exchangeDevice(tab.edit_entity)" ng-disabled="tab.edit_entity.resetting || !tab.edit_entity.device_id"><span class="fa fa-exchange"></span> $dict{exchange_device}</button>
+</div>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-bookmark"></i> $dict{general}
+		</div>
+		<div class="rc-form-body">
+
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{device_name}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="device_name" name="device_name" class="form-control dataentry-data" ng-model="tab.edit_entity.device_name" required></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{device_type}</div>
+				<div class="rc-form-data">
+					<rc-select ng-model="tab.edit_entity.device_type_id" webservice="base/rc_devicetype/getDeviceTypeList" value="device_type_id" label="device_type_name" class="dataentry-data" required></rc-select>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{device_status}</div>
+				<div class="rc-form-data">
+					<rc-select ng-model="tab.edit_entity.device_status_id" webservice="base/rc_devicestatus/getDeviceStatusList" value="device_status_id" label="device_status_name" class="dataentry-data"></rc-select>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{location}</div>
+				<div class="rc-form-data">
+					<rc-select ng-model="tab.edit_entity.location_id" webservice="base/rc_location/getLocationList" value="location_id" label="location_name" class="dataentry-data"></rc-select>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{description}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="description" name="description" class="form-control dataentry-data" ng-model="tab.edit_entity.description"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{note}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="note" name="note" class="form-control dataentry-data" ng-model="tab.edit_entity.note"></text>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="rc-form-heading">
+			<i class="fa fa-support"></i> $dict{support_info}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{teamviewer_id}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="teamviewer_id" name="teamviewer_id" class="form-control dataentry-data" ng-model="tab.edit_entity.config_json.teamviewer_id"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{teamviewer_password}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="teamviewer_password" name="teamviewer_password" class="form-control dataentry-data" ng-model="tab.edit_entity.config_json.teamviewer_password"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{device_id}</div>
+				<div class="rc-form-data">
+					<p class="form-control-static">{{tab.edit_entity.device_id}}</p>
+				</div>
+			</div>
+		</div>
+
+		<part name="_templates/base/audit_info_edit"></part>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{user_id}</div>
+				<div class="rc-form-data">
+					<p class="form-control-static">{{tab.edit_entity.user_name}}</p>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{date_created}</div>
+				<div class="rc-form-data">
+					<p class="form-control-static">{{tab.entity.date_created | moment:'mediumDateTime' || '-'}}</p>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{ip_address}</div>
+				<div class="rc-form-data">
+					<p class="form-control-static">{{tab.edit_entity.ip_address}}</p>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{active}</div>
+				<div class="rc-form-data">
+					<i ng-class='{"fa fa-check-circle-o": (tab.entity.active == true), "fa fa-circle-o": (tab.entity.active == false)}'></i>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit" ng-if="tab.edit_entity.device_type_id == 1">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-print"></i> $dict{printers}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{printer}</div>
+				<div class="rc-form-data">
+					<rc-select ng-model="tab.edit_entity.printer_id" webservice="base/rc_device/getPrintersList" value="device_id" label="device_name"></rc-select>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="rc-form rc-form-edit" ng-if="tab.edit_entity.device_type_id == 2">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-print"></i> $dict{printer}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{printer_ip_address}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="printer_ip_address" name="printer_ip_address" class="form-control dataentry-data" ng-model="tab.edit_entity.config_json.printer_ip_address"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{printer_port}</div>
+				<div class="rc-form-data">
+					<text type="number" rc-id="printer_port" name="printer_port" class="form-control dataentry-data" ng-model="tab.edit_entity.config_json.printer_port"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{print_definition_format}</div>
+				<div class="rc-form-data">
+					<rc-select ng-model="tab.edit_entity.config_json.print_definition_format_id" webservice="base/rc_printdefinitionformats/getPrintDefinitionFormatsList" value="print_definition_format_id" label="print_definition_format_name" class="dataentry-data" required></rc-select>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-globe"></i> $dict{technical_info}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<pre class="json_syntax" ng-bind-html="tab.entity.browser_config_syntax"></pre>
+			</div>
+		</div>
+
+	</div>
+
+</div>

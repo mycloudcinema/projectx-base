@@ -1,0 +1,21 @@
+<cache timeout="0"></cache>
+
+<resource name="ActivityLogEntity"></resource>
+
+<resource name="AngularJS_Input"></resource>
+<resource name="BootstrapDatepicker"></resource>
+
+<resource name="rcDataEntry"></resource>
+<resource name="rcFocus"></resource>
+<resource name="rcTable"></resource>
+<resource name="rcWebservice"></resource>
+
+<div ng-controller="ActivityLogController as con" ng-cloak="">
+
+	<div class="row">
+		<div class="col-sm-12">
+			<rc-dataentry class="dataentry" entity-manager="con.ActivityLogManager" columns="con.columns" options="con.options" order="con.order" template-add="con.templateAdd" template-view="con.templateView" template-edit="con.templateEdit" id-field="activity_log_id" name-field="activity_log_id"></rc-dataentry>
+		</div>
+	</div>
+
+</div>

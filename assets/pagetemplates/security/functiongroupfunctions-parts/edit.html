@@ -1,0 +1,21 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<form class="form-horizontal">
+    <div class="col-md-8">
+		<div class="form-group">
+			<label for="function_group_id" class="col-sm-3 control-label">$dict{function_group_id}</label>
+			<div class="col-sm-9">
+				<rc-select ng-model="tab.edit_entity.function_group_id" webservice="functiongroups/getFunctionGroupsList" value="function_group_id" label="function_group_name"></rc-select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="function_id" class="col-sm-3 control-label">$dict{function_id}</label>
+			<div class="col-sm-9">
+				<rc-select ng-model="tab.edit_entity.function_id" webservice="functions/getFunctionsList" value="function_id" label="function_name"></rc-select>
+			</div>
+		</div>
+
+    </div>
+    <div class="col-md-4">
+    </div>
+</form>

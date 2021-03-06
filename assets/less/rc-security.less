@@ -1,0 +1,120 @@
+/*
+table {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+*/
+.rotated90 {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083); /* IE6,IE7 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)"; /* IE8 */
+    -moz-transform: rotate(-90.0deg); /* FF3.5+ */
+    -ms-transform: rotate(-90.0deg); /* IE9+ */
+    -o-transform: rotate(-90.0deg); /* Opera 10.5 */
+    -webkit-transform: rotate(-90.0deg); /* Safari 3.1+, Chrome */
+    transform: rotate(-90.0deg); /* Standard */
+    white-space: nowrap;
+    width: 1.2em;
+}
+
+th.verticalCell {
+    height: 175px;
+}
+
+td {
+	div {
+		border-right:								1px solid #DDD;
+		&.btn-group {
+			border-right:							none;
+		}
+	}
+}
+td .highlighted {
+	background-color:								#AAA;
+	color:											white;
+	border-right:									1px solid white;
+}
+
+.no-padding {
+    padding: 0px !important;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+thead th i.fa:before {
+    content: "\f0dc";
+}
+
+thead th.ascending i:before {
+    content: "\f0dd";
+}
+
+thead th.descending i:before {
+    content: "\f0de";
+}
+
+thead th.primary-sort {
+    background-color: #E4F0F4;
+}
+
+thead th.secondary-sort {
+    background-color: #D9E5EA;
+}
+
+thead th i.pull-right {
+    margin-left: .3em;
+    margin-right: .3em;
+    margin-top: .25em;
+}
+
+.remek-table-group-header {
+
+}
+
+tbody {
+    -webkit-transition: height 400ms;
+    -moz-transition: height 400ms;
+    -ms-transition: height 400ms;
+    -o-transition: height 400ms;
+    transition: height 400ms;
+}
+
+tbody.hidden {
+    height: 0px;
+}
+
+table td {
+    padding: 0px;
+}
+
+tr.remek-table-pagination button.btn-default {
+    color: #2780e3
+}
+
+.rc-dialog.loading .modal-dialog {
+    width: 200px;
+}
+
+.rc-dialog.loading .modal-content {
+    background-color: #3E4B5D;
+    color: white;
+    font-size: 50px;
+    padding-left: 75px;
+    padding-right: 75px;
+}
+
+.functions-table tr {
+    -webkit-transition: opacity 300ms ease-in-out;
+    -moz-transition: opacity 300ms ease-in-out;
+    -ms-transition: opacity 300ms ease-in-out;
+    -o-transition: opacity 300ms ease-in-out;
+    opacity: 1;
+}
+tr.disabled {
+    opacity: 0.25;
+}

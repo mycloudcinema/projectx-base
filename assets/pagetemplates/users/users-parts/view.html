@@ -1,0 +1,148 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-bookmark"></i> $dict{general}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{first_name}</div>
+				<div class="rc-form-data">
+					{{tab.entity.first_name || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{last_name}</div>
+				<div class="rc-form-data">
+					{{tab.entity.last_name || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{internal_id}</div>
+				<div class="rc-form-data">
+					{{tab.entity.internal_id || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{default_page}</div>
+				<div class="rc-form-data">
+					{{tab.entity.default_page || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{active}</div>
+				<div class="rc-form-data">
+					<i ng-class="{'fa fa-check-circle-o': (tab.entity.active == true), 'fa fa-circle-o': (tab.entity.active == false)}"></i>
+					<div class="alert alert-warning" ng-if="!tab.entity.active"><span class="fa fa-info-circle"></span> $dict{inactive_login_disabled}</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-user"></i> $dict{contact_details}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{email_address}</div>
+				<div class="rc-form-data">
+					{{tab.entity.email || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{email_address_confirmed}</div>
+				<div class="rc-form-data">
+					<i ng-class="{'fa fa-check-circle-o': (tab.entity.email_confirmed == true), 'fa fa-circle-o': (tab.entity.email_confirmed == false)}"></i>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{email_address_confirmation_code}</div>
+				<div class="rc-form-data">
+					{{tab.entity.email_confirmation_code || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{phone_number}</div>
+				<div class="rc-form-data">
+					{{tab.entity.phone || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{phone_number_confirmed}</div>
+				<div class="rc-form-data">
+					<i ng-class="{'fa fa-check-circle-o': (tab.entity.phone_confirmed == true), 'fa fa-circle-o': (tab.entity.phone_confirmed == false)}"></i>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{phone_number_confirmation_code}</div>
+				<div class="rc-form-data">
+					{{tab.entity.phone_confirmation_code || '-'}}
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-lock"></i> $dict{security_settings}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{login}</div>
+				<div class="rc-form-data">
+					{{tab.entity.login || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{login_barcode}</div>
+				<div class="rc-form-data">
+					{{tab.entity.login_barcode || '-'}}
+					<br>
+					<div class="alert alert-info">$dict{login_barcode_desc}</div>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{user_roles}</div>
+				<div class="rc-form-data">
+					{{tab.entity.user_role_names || '-'}}
+				</div>
+			</div>
+		</div>
+
+		<part name="_templates/base/audit_info_view"></part>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{user_id}</div>
+				<div class="rc-form-data">
+					{{tab.edit_entity.user_id}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{last_login}</div>
+				<div class="rc-form-data">
+					{{tab.entity.last_login | moment:'userLongFormat' || '-'}} @ {{tab.entity.last_login | moment:'shortTime' || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{last_activity}</div>
+				<div class="rc-form-data">
+					{{tab.entity.last_activity | moment:'userLongFormat' || '-'}} @ {{tab.entity.last_activity | moment:'shortTime' || '-'}}
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>

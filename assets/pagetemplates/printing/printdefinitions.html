@@ -1,0 +1,32 @@
+<cache timeout="0"></cache>
+
+<resource name="CinemasEntity"></resource>
+<resource name="PrintDefinitionsEntity"></resource>
+<resource name="PrintManager"></resource>
+<resource name="DeviceManager"></resource>
+
+<resource name="AngularJS_Input"></resource>
+<resource name="AngularJS_Switchery"></resource>
+<resource name="BootstrapDatepicker"></resource>
+
+<resource name="rcDataEntry"></resource>
+<resource name="rcTable"></resource>
+<resource name="rcWebservice"></resource>
+<resource name="rcFocus"></resource>
+
+<div ng-controller="PrintDefinitionsController as con" ng-cloak="">
+
+	<access functions="base/rc_print/reload">
+		<div class="row">
+			<div class="col-sm-12">
+				<button type="button" class="btn btn-primary pull-right" ng-click="con.reloadDefinitions()"><i class="fa fa-refresh"></i> $dict{reload_print_definitions}</button>
+			</div>
+		</div>
+	</access>
+	<div class="row">
+		<div class="col-sm-12">
+			<rc-dataentry class="dataentry" entity-manager="con.PrintDefinitionsManager" columns="con.columns" order="con.order" options="con.options" template-add="con.templateAdd" template-view="con.templateView" template-edit="con.templateEdit" id-field="print_definition_id" name-field="print_definition_id"></rc-dataentry>
+		</div>
+	</div>
+
+</div>

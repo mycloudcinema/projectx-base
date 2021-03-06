@@ -1,0 +1,58 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-bookmark"></i> $dict{general}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{email_event_type}</div>
+				<div class="rc-form-data">
+					{{tab.entity.event_type || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{language}</div>
+				<div class="rc-form-data">
+					{{tab.entity.language_name || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{email_subject}</div>
+				<div class="rc-form-data">
+					{{tab.entity.subject || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{bcc_addresses}</div>
+				<div class="rc-form-data">
+					{{tab.entity.bcc_addresses || '-'}}
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<part name="_templates/base/audit_info_view"></part>
+
+</div>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-envelope"></i> $dict{email_template}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-group" ng-bind-html="tab.entity.template"></div>
+			</div>
+		</div>
+
+	</div>
+
+</div>

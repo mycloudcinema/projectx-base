@@ -1,0 +1,26 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+<cache timeout="0"></cache>
+
+<div class="growl_container">
+
+	<div class="growl_message fadeIn" ng-repeat="message in messages track by $index" ng-show="message.visible">
+
+		<div class="growl-icon"><i class="fa fa-3x" ng-class="{'fa-bullhorn': message.broadcast, 'fa-envelope': message.personal, 'fa-money': message.authorisation}"></i></div>
+
+		<div class="growl-body">
+			<div class="growl_title">{{message.message_from}} - {{messageAge(message.message_date)}}</div>
+			<div class="growl_text">
+				<span ng-bind-html="message.message_text"></span>
+				<a href="{{message.link}}" ng-if="message.link">$dict{click_here_for_details}</a>
+			</div>
+		</div>
+
+		<div class="growl_actions">
+			<a class="growl_close" ng-click="messageRead(message)" ng-if="!message.authorisation">$dict{ok}</a>
+			<a class="growl_authorise" ng-click="authoriseRequest(message)" ng-if="message.authorisation">$dict{authorise_request}</a>
+			<a class="growl_reject" ng-click="rejectRequest(message)" ng-if="message.authorisation">$dict{reject_request}</a>
+		</div>
+
+	</div>
+
+</div>

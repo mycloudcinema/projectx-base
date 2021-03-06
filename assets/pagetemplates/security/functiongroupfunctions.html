@@ -1,0 +1,26 @@
+<cache timeout="0"></cache>
+
+<resource name="rcDataEntry"></resource>
+<resource name="rcTable"></resource>
+<resource name="rcWebservice"></resource>
+<resource name="FunctionGroupFunctionsEntity"></resource>
+<resource name="AngularJS_Input"></resource>
+
+<div ng-controller="FunctionGroupFunctionsController as con" ng-cloak="">
+
+    <div class="container-fluid">
+		
+        <div class="row">
+            <h1 class="col-sm-12 page-title">$dict{function_group_functions}</h1>
+            <hr>
+        </div>
+		
+        <div class="row">
+            <div class="col-sm-12">
+                <rc-dataentry class="dataentry" entity-manager="con.FunctionGroupFunctionsManager" columns="con.columns" template-add="con.templateAdd" template-view="con.templateView" template-edit="con.templateEdit" id-field="function_group_functions_id" name-field="function_group_functions_id"></rc-dataentry>
+            </div>
+        </div>
+		
+    </div>
+
+</div>

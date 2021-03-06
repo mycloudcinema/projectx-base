@@ -1,0 +1,14 @@
+<access functions="/base/setup/dictionary-manager,/base/setup/onlinehelp,/base/setup/languages,/base/setup/sites,/base/setup/toursteps">
+
+	<li id="menuApplicationCore">
+		<a href="#applicationCoreSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-cogs"></i> $dict{application_core} <span class="caret"></span></a>
+		<ul class="collapse list-unstyled" id="applicationCoreSubmenu">
+			<access functions="/base/setup/dictionary-manager"><li id="menuDictionaryManager"><a href="/base/setup/dictionary-manager"><span>$dict{dictionary_manager}</span></a></li></access>
+			<access functions="/base/setup/onlinehelp"><li id="menuOnlineHelp"><a href="/base/setup/onlinehelp"><span>$dict{online_help}</span></a></li></access>
+			<access functions="/base/setup/languages"><li id="menuLanguages"><a href="/base/setup/languages"><span>$dict{languages}</span></a></li></access>
+			<access functions="/base/setup/sites"><li id="menuSites"><a href="/base/setup/sites"><span>$dict{sites}</span></a></li></access>
+			<access functions="/base/setup/toursteps"><li id="menuTourSteps"><a href="/base/setup/toursteps"><span>$dict{tour_steps}</span></a></li></access>
+		</ul>
+	</li>
+
+</access>

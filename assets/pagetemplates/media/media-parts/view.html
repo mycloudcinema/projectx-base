@@ -1,0 +1,84 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-bookmark"></i> $dict{general}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{site_name}</div>
+				<div class="rc-form-data">
+					{{tab.entity.site_name || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{media_type_id}</div>
+				<div class="rc-form-data">
+					{{tab.entity.media_type_name || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{media_desc}</div>
+				<div class="rc-form-data">
+					{{tab.entity.media_desc || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{media_size}</div>
+				<div class="rc-form-data">
+					{{tab.entity.media_size || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{uploaded_by}</div>
+				<div class="rc-form-data">
+					{{tab.entity.uploaded_by_name || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{upload_date}</div>
+				<div class="rc-form-data">
+					{{tab.entity.upload_date || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{valid_from}</div>
+				<div class="rc-form-data">
+					{{tab.entity.valid_from || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{valid_until}</div>
+				<div class="rc-form-data">
+					{{tab.entity.valid_until || '-'}}
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+<div class="col-md-6">
+
+	<div class="rc-form">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-image"></i> $dict{preview}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<img class="img-responsive" ng-src="{{tab.entity.media_directory + '/' + tab.entity.media_name}}">
+				<span>{{tab.entity.media_directory + '/' + tab.entity.media_name}}</span>
+			</div>
+		</div>
+
+		<part name="_templates/base/audit_info_view"></part>
+
+	</div>
+
+</div>

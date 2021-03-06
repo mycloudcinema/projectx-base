@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="310px" height="318px" viewBox="0 0 310 318" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.1 (72631) - https://sketchapp.com -->
+    <title>Seat Overlay</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="98.2730514%" id="linearGradient-1">
+            <stop stop-color="#767676" offset="0%"></stop>
+            <stop stop-color="#5F5F5F" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#626262" offset="0%"></stop>
+            <stop stop-color="#5F5F5F" offset="99.8574747%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Love-Left-Locked" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Seat-Overlay" transform="translate(1.000000, 1.000000)">
+            <rect id="Rectangle" stroke="#555555" fill="#777777" x="8.5" y="14.5" width="299" height="299" rx="8"></rect>
+            <path d="M8,314.421143 L78.6666667,249.973323 L78.6666667,93.9233767 C44.45189,5.5151495 21.4187954,-20.1992706 9.56738281,16.7801163 C-2.28402978,53.7595032 -2.80649072,152.973179 8,314.421143 Z" id="Left-Bolster" stroke="#BBBBBB" fill="url(#linearGradient-1)"></path>
+            <polygon id="Rear-Bolster" stroke="#979797" fill="url(#linearGradient-2)" points="8 316 78.6666667 249.973323 308 252.696377 308 316"></polygon>
+        </g>
+    </g>
+</svg>

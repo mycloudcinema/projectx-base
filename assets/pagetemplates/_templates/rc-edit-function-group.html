@@ -1,0 +1,110 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+<cache timeout="0"></cache>
+
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close();" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+	<h4 class="modal-title" id="myModalLabel">$dict{edit} {{function_group.function_group_name}}</h4>
+</div>
+
+<div class="modal-body">
+
+	<form>
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="form-group">
+					<label>$dict{function_group_category}</label>
+					<input id="function_name_input2" type="text" ng-model="function_group.function_group_category" class="form-control input-sm" ng-if="edit_mode">
+					<span class="form-control input-sm" ng-bind="function_group.function_group_category" ng-if="!edit_mode"></span>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-9">
+				<div class="form-group">
+					<label>$dict{function_group_name}</label>
+					<input type="text" ng-model="function_group.function_group_name" class="form-control input-sm" ng-if="edit_mode">
+					<span class="form-control input-sm" ng-bind="function_group.function_group_name" ng-if="!edit_mode"></span>
+				</div>
+			</div>
+			<div class="col-xs-3">
+				<div class="form-group">
+					<label>$dict{not_for_replication}</label>
+					<input type="checkbox" ng-model="function_group.not_for_replication" class="form-control input-sm" ng-if="edit_mode">
+					<span class="form-control input-sm" ng-if="!edit_mode"><i class="fa" ng-class='{"fa-circle-o": !function_group.not_for_replication, "fa-check-circle-o": function_group.not_for_replication}'></i></span>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<hr/>
+
+	<div class="row">
+
+		<div ng-class="{'col-md-6': edit_mode, 'col-xs-12': !edit_mode}">
+
+			<div class="input-group" ng-show="edit_mode">
+				<input id="function_name_input" type="text" ng-model="selected" rc-enter="select();" typeahead="o as o.function_name for o in functions | filter:$viewValue | limitTo:8" class="form-control input-sm"/>
+				<span class="input-group-btn">
+					<button class="btn btn-primary btn-sm" ng-click="select()"><i class="fa fa-plus"></i> $dict{add}</button>
+				</span>
+			</div>
+
+			<div class="alert alert-warning" ng-if="!functiongroup_functions || functiongroup_functions.length === 0">
+				$dict{no_functions_selected}
+			</div>
+
+			<div style="max-height: 400px; overflow: auto;">
+
+				<table class="table table-condensed table-striped table-hover functions-table">
+					<tr ng-repeat="function in functiongroup_functions | orderBy: 'function_name'">
+						<td tooltip="{{function.function_name > 45 ? function.function_name:null}}" tooltip-append-to-body="true" tooltip-popup-delay="500">{{function.function_name | limitTo:45}} {{function.function_name.length > 45 ? "...":""}}</td>
+						<td>
+							<span class="label label-warning" ng-if="function.newItem">$dict{new}</span>
+						</td>
+						<td style="padding-right: 12px" ng-show="edit_mode">
+							<button class="btn btn-default btn-xs pull-right" ng-click="remove($index);">
+								<i class="fa fa-times-circle"></i>
+							</button>
+						</td>
+					</tr>
+				</table>
+
+			</div>
+
+		</div>
+
+		<div class="col-md-6" ng-show="edit_mode">
+
+			<div class="input-group">
+				<input type="text" class="form-control input-sm" placeholder="$dict{filter}" ng-model="function_filter"/>
+				<span class="input-group-btn">
+					<button class="btn btn-default btn-sm" ng-click="selectAll(filteredFunctions);">$dict{select_all}</button>
+				</span>
+			</div>
+
+			<div style="max-height: 400px; overflow: auto;">
+				<table class="table table-condensed table-striped table-hover functions-table">
+					<!-- <tr ng-repeat="function in filteredFunctions = (functions | filter:function_filter)"  style="cursor: pointer;" ng-class="{'disabled already-added':alreadyAdded(function)}"> -->
+					<tr ng-repeat="function in filteredFunctions = (functions | filter:function_filter)"  style="cursor: pointer;" ng-if="!alreadyAdded(function)">
+						<td tooltip="{{function.function_name > 45 ? function.function_name:null}}" tooltip-append-to-body="true" tooltip-popup-delay="500">{{function.function_name | limitTo:45}} {{function.function_name.length > 45 ? "...":""}}</td>
+						<td style="padding-right: 12px">
+							<button class="btn btn-default btn-xs" ng-click="add(function)" ng-disabled="alreadyAdded(function);">
+								<i class="fa fa-plus"></i>
+							</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+<div class="modal-footer">
+	<button type="button" class="btn btn-default" ng-click="close();">$dict{close}</button>
+	<button type="button" class="btn btn-primary" ng-click="save();">$dict{save_changes}</button>
+</div>

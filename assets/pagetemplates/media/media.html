@@ -1,0 +1,19 @@
+<cache timeout="0"></cache>
+
+<resource name="rcBytes"></resource>
+<resource name="rcDataEntry"></resource>
+<resource name="rcDatePicker"></resource>
+<resource name="rcFilter"></resource>
+<resource name="rcTable"></resource>
+<resource name="rcWebservice"></resource>
+
+<resource name="AngularJS_Filters"></resource>
+<resource name="AngularJS_Input"></resource>
+<resource name="AngularJS_Switchery"></resource>
+<resource name="Moment"></resource>
+
+<resource name="MediaEntity"></resource>
+
+<div ng-controller="MediaController as con" ng-cloak="">
+	<rc-dataentry class="dataentry" entity-manager="con.MediaManager" columns="con.columns" order="con.order" options="con.options" template-add="con.templateAdd" template-view="con.templateView" template-edit="con.templateEdit" id-field="media_id" name-field="media_id"></rc-dataentry>
+</div>

@@ -1,0 +1,22 @@
+<cache timeout="0"></cache>
+
+<resource name="UsersEntity"></resource>
+
+<resource name="rcDataEntry"></resource>
+<resource name="rcDateHandler"></resource>
+<resource name="rcTable"></resource>
+<resource name="rcWebservice"></resource>
+<resource name="rcFocus"></resource>
+<resource name="AngularJS_Input"></resource>
+<resource name="AngularJS_Switchery"></resource>
+<resource name="BootstrapDatepicker"></resource>
+
+<div ng-controller="UsersController as con" ng-cloak="">
+
+	<div class="row">
+		<div class="col-sm-12">
+			<rc-dataentry class="dataentry" entity-manager="con.UsersManager" columns="con.columns" order="con.order" template-add="con.templateAdd" template-view="con.templateView" template-edit="con.templateEdit" id-field="user_id" name-field="full_name"></rc-dataentry>
+		</div>
+	</div>
+
+</div>

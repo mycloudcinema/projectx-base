@@ -1,0 +1,10 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+<cache timeout="0"></cache>
+
+<div class="{{options.class}}">
+	<div class="collaborators">
+		<div ng-repeat="collaborator in collaborators track by $index" class="collaborator" ng-class="{'active': collaborator.active, 'inactive': collaborator.inactive, 'myself': collaborator.myself}">
+			{{collaborator.initials}}
+		</div>
+	</div>
+</div>

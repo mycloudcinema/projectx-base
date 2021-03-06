@@ -1,0 +1,134 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-bookmark"></i> $dict{general}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{first_name}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="first_name" name="first_name" class="form-control dataentry-data" ng-model="new_entity.first_name"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{last_name}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="last_name" name="last_name" class="form-control dataentry-data" ng-model="new_entity.last_name"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{internal_id}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="internal_id" name="internal_id" class="form-control dataentry-data" ng-model="new_entity.internal_id"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{default_page}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="default_page" name="default_page" class="form-control dataentry-data" ng-model="new_entity.default_page"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{active}</div>
+				<div class="rc-form-data">
+					<input type="checkbox" id="active" name="active" class="js-switch switchery-small" ui-switch="{size: 'small'}" ng-model="new_entity.active"/>
+					<p>
+						<div class="alert alert-warning" ng-if="!new_entity.active"><span class="fa fa-info-circle"></span> $dict{inactive_login_disabled}</div>
+					</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-user"></i> $dict{contact_details}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{email_address}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="email" name="email" class="form-control dataentry-data" ng-model="new_entity.email"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{email_address_confirmed}</div>
+				<div class="rc-form-data">
+					<input type="checkbox" id="email_confirmed" name="email_confirmed" class="js-switch switchery-small" ui-switch="{size: 'small'}" ng-model="new_entity.email_confirmed"/>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{email_address_confirmation_code}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="email_confirmation_code" name="email_confirmation_code" class="form-control dataentry-data" ng-model="new_entity.email_confirmation_code"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{phone_number}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="phone" name="phone" class="form-control dataentry-data" ng-model="new_entity.phone"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{phone_number_confirmed}</div>
+				<div class="rc-form-data">
+					<input type="checkbox" id="phone_confirmed" name="phone_confirmed" class="js-switch switchery-small" ui-switch="{size: 'small'}" ng-model="new_entity.phone_confirmed"/>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{phone_number_confirmation_code}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="phone_confirmation_code" name="phone_confirmation_code" class="form-control dataentry-data" ng-model="new_entity.phone_confirmation_code"></text>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-lock"></i> $dict{security_settings}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{login}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="login" name="login" class="form-control dataentry-data" ng-model="new_entity.login"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{password}</div>
+				<div class="rc-form-data">
+					<text type="password" rc-id="password" name="password" class="form-control dataentry-data" ng-model="new_entity.password"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{login_barcode}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="login_barcode" name="login_barcode" class="form-control dataentry-data" ng-model="new_entity.login_barcode"></text>
+					<br>
+					<div class="alert alert-info">$dict{login_barcode_desc}</div>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{user_roles}</div>
+				<div class="rc-form-data">
+					<rc-tags ng-model="new_entity.user_roles" webservice="base/rc_userroles/getUserRolesList" value="user_role_id" label="user_role_name"></rc-tags>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>

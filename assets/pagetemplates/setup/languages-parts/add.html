@@ -1,0 +1,49 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-bookmark"></i> $dict{general}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{language}</div>
+				<div class="rc-form-data">
+					<text rc-id="language" type="text" name="language" class="form-control dataentry-data text-uppercase" ng-model="new_entity.language" maxlength="50" required></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{language_name}</div>
+				<div class="rc-form-data">
+					<text rc-id="language_name" type="text" name="language_name" class="form-control dataentry-data" ng-model="new_entity.language_name" maxlength="255" required></text>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div ng-repeat="language in ctrl.con.supportedLanguages">
+			<div class="rc-form-heading">
+				<i class="fa fa-commenting-o"></i> {{language.language}}
+			</div>
+			<div class="rc-form-body">
+				<div class="rc-form-group">
+					<div class="rc-form-prompt">$dict{display_name}</div>
+					<div class="rc-form-data">
+						<text rc-id="{{language.language}}_language_name" type="text" class="form-control dataentry-data" ng-model="new_entity.language_name_list[language.language].language_name" maxlength="255" required></text>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>

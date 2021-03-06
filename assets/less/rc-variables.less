@@ -1,0 +1,134 @@
+/*
+ ____                     _
+|  _ \ ___ _ __ ___   ___| | __
+| |_) / _ \ '_ ` _ \ / _ \ |/ /
+|  _ <  __/ | | | | |  __/   <
+|_| \_\___|_| |_| |_|\___|_|\_\
+
+  ____                      _ _   _
+ / ___|___  _ __  ___ _   _| | |_(_)_ __   __ _
+| |   / _ \| '_ \/ __| | | | | __| | '_ \ / _` |
+| |__| (_) | | | \__ \ |_| | | |_| | | | | (_| |
+ \____\___/|_| |_|___/\__,_|_|\__|_|_| |_|\__, |
+                                          |___/
+
+Base LESS variables used to replace the Bootstrap values
+*/
+
+@screen-xs:						480px;
+@screen-xs-min:					@screen-xs;
+@screen-sm:						768px;
+@screen-sm-min:					@screen-sm;
+@screen-md:						992px;
+@screen-md-min:					@screen-md;
+@screen-lg:						1200px;
+@screen-lg-min:					@screen-lg;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-xs-max:					(@screen-sm-min - 1);
+@screen-sm-max:					(@screen-md-min - 1);
+@screen-md-max:					(@screen-lg-min - 1);
+
+@rcPrimaryBG:                   #FFF;
+@rcPrimaryFG:                   #333;
+@rcPrimaryFGInverse:            #EEE;
+
+@rcSecondaryBG:                 #393939;
+@rcSecondaryFG:                 #EEE;
+@rcSecondaryFGInverse:          #333;
+@rcSecondaryFGHover:            #FFF;
+@rcSecondaryBGHover:            rgba(255,255,255,0.2);
+
+/*@rcTertiaryBG:                  #A4B8C4;*/
+/*@rcTertiaryBG:                  #C3DBEC;*/
+@rcTertiaryBG:                  #2a313a;
+/*@rcTertiaryFG:                  #393939;*/
+@rcTertiaryFG:                  #EEE;
+@rcTertiaryFGInverse:           #555;
+@rcTertiaryFGHover:             #FFF;
+@rcTertiaryBGHover:             rgba(255,255,255,0.2);
+
+@sidebarWidth:                  250px;
+@sidebarWidthSmall:             80px;
+
+@sidebarBreakPointSmall:        1023px;
+@sidebarBreakPointNone:         767px;
+
+@sidebarActive:                 red;
+@sidebarActiveBG:               #555;
+@sidebarActiveFG:               #EEE;
+@sidebarHover:                  orange;
+@sidebarHoverBG:                #555;
+@sidebarHoverFG:                #FFF;
+
+@footerHeight:					0px;
+
+.rcPrimaryGradient() {
+    background: @rcPrimaryBG; /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(57,57,57,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,1)), color-stop(100%,rgba(57,57,57,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(57,57,57,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(57,57,57,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(57,57,57,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(57,57,57,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#393939',GradientType=0 ); /* IE6-9 */
+}
+.rcSecondaryGradient() {
+    background: @rcSecondaryBG; /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(57,57,57,1) 0%, rgba(96,96,96,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(57,57,57,1)), color-stop(100%,rgba(96,96,96,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(57,57,57,1) 0%,rgba(96,96,96,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(57,57,57,1) 0%,rgba(96,96,96,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(57,57,57,1) 0%,rgba(96,96,96,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(57,57,57,1) 0%,rgba(96,96,96,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#393939', endColorstr='#606060',GradientType=0 ); /* IE6-9 */
+}
+.rcTertiaryGradient() {
+    background: @rcTertiaryBG; /* Old browsers */
+    background-color: #363e4a;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #303d4f), color-stop(100%, #435266)), #686e78;
+    background: -webkit-linear-gradient(#303d4f, #435266), #686e78;
+    background: -moz-linear-gradient(#303d4f, #435266), #686e78;
+    background: -o-linear-gradient(#303d4f, #435266), #686e78;
+    background: linear-gradient(#303d4f, #435266), #686e78;
+/*    background: rgb(164,184,196);  Old browsers
+    background: -moz-linear-gradient(top,  rgba(164,184,196,1) 0%, rgba(200,211,213,1) 100%);  FF3.6+
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(164,184,196,1)), color-stop(100%,rgba(200,211,213,1)));  Chrome,Safari4+
+    background: -webkit-linear-gradient(top,  rgba(164,184,196,1) 0%,rgba(200,211,213,1) 100%);  Chrome10+,Safari5.1+
+    background: -o-linear-gradient(top,  rgba(164,184,196,1) 0%,rgba(200,211,213,1) 100%);  Opera 11.10+
+    background: -ms-linear-gradient(top,  rgba(164,184,196,1) 0%,rgba(200,211,213,1) 100%);  IE10+
+    background: linear-gradient(to bottom,  rgba(164,184,196,1) 0%,rgba(200,211,213,1) 100%);  W3C
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a4b8c4', endColorstr='#c8d3d5',GradientType=0 );  IE6-9 */
+}
+
+/* Site Base Fonts */
+@font-face {
+	font-family:                ExistenceLight;
+	src:                        url("../fonts/base/existence-light/Existence-Light.otf") format("opentype");
+	font-weight:                normal;
+	font-style:                 normal;
+}
+.baseFontFace() {
+	font-family:		        'Source Sans Pro', 'Calibri', 'Candara', 'Arial', 'sans-serif' !important;
+/*	font-size:			1em;*/
+/*	line-height:		1.4;*/
+	// -webkit-font-smoothing:     antialiased;
+}
+.stylishFontFace() {
+	font-family:		        'ExistenceLight', 'Verdana', 'Arial', 'sans-serif' !important;
+/*	font-size:			1em;*/
+/*	line-height:		1.4;*/
+	// -webkit-font-smoothing:     antialiased;
+}
+.modernFontFace() {
+	font-family:		        'Open Sans', 'Verdana', 'Arial', 'sans-serif' !important;
+/*	font-size:			1em;*/
+/*	line-height:		1.4;*/
+	// -webkit-font-smoothing:     antialiased;
+}
+.boldFontFace() {
+	font-family:		        'Verdana' !important;
+	font-size:			        1em;
+	line-height:		        1.4;
+	// -webkit-font-smoothing:     antialiased;
+}

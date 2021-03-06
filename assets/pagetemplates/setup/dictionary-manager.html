@@ -1,0 +1,56 @@
+<cache timeout="0"></cache>
+
+<resource name="DictionaryEntity"></resource>
+<resource name="LanguagesEntity"></resource>
+
+<resource name="AngularJS_Grid"></resource>
+<resource name="rcEnter"></resource>
+
+<div ng-controller="DictionaryController as con">
+
+	<div class="row" style="margin-bottom: 10px;">
+		<div class="col-xs-12">
+			<access functions="dictionary/_reload">
+				<button type="button" class="btn btn-primary pull-right" ng-click="con.reloadDictionary()"><i class="fa fa-refresh"></i> $dict{reload_dictionary}</button>
+			</access>
+			<access functions="add_dictionary_entry">
+				<button type="button" class="btn btn-success pull-right" ng-click="con.addEntry()"><i class="fa fa-plus-circle"></i> $dict{add_dictionary_entry}</button>
+			</access>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-6">
+			<div class="form-group">
+				<select class="form-control" name="dictionary_category" id="dictionary_category" ng-options="category.dictionary_category as category.dictionary_category for category in con.dictionaryCategories" ng-model="con.dictionary_category" ng-change="con.loadDictionary()"></select>
+			</div>
+		</div>
+		<div class="col-xs-6">
+			<div class="input-group">
+				<input type="text" class="form-control" placeholder="$dict{search_for}" ng-model="con.searchTerm" rc-enter="con.searchDictionary();">
+				<span class="input-group-btn">
+					<div class="btn-group">
+						<button class="btn btn-default" type="button" ng-click="con.searchDictionary()" ng-enabled="!con.searching">
+							<i class="fa fa-fw" ng-class="{'fa-search': !con.searching, 'fa-refresh fa-spin': con.searching}"></i> $dict{search}
+						</button>
+					</div>
+				</span>
+				<span class="input-group-btn">
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li><a href="#" ng-click="con.getNeedsUpdate();">$dict{only_needs_update}</a></li>
+					</ul>
+				</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<div ui-grid="con.gridOptions" ui-grid-edit ui-grid-cellNav class="myGrid"></div>
+		</div>
+	</div>
+
+</div>

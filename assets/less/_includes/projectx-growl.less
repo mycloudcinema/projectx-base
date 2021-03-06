@@ -1,0 +1,70 @@
+.growl_container {
+	width:									450px !important;
+	.growl_message {
+		border-radius:						@borderRadius;
+		border:								none !important;
+		display:							block;
+		padding:							20px 10px !important;
+		&:after {
+			clear:							both;
+		}
+		.growl-icon {
+			width:							48px;
+			height:							48px;
+			float:							left;
+			color:silver;
+		}
+		.growl-body {
+			padding-left:					50px;
+			padding-right:					120px;
+			.growl_title {
+				color:						white;
+				font-size:					1em;
+				border-bottom:				none !important;
+				margin-bottom:				0px !important;
+			}
+			.growl_text {
+				font-size:					0.9em;
+			}
+		}
+		.growl_actions {
+			left:							auto !important;
+			top:							0px;
+			right:							0px;
+			width:							120px;
+			border-left:					1px solid #444;
+			height:							100%;
+			position:						absolute;
+			width:							120px;
+			a {
+				position:					absolute !important;
+				text-align:					center !important;
+				right:						0 !important;
+				color:						silver;
+				left:						0;
+				text-indent:				0;
+				font-size:					12px;
+				font-weight:				600;
+				line-height:				9px;
+				margin-top:					-5px;
+				font-family:				inherit;
+				cursor:						pointer;
+				&.growl_close {
+					top:					50%!important;
+				}
+				&.growl_authorise {
+					top:					25%;
+					padding-bottom:			12%;
+					border-bottom:			1px solid #444;
+				}
+				&.growl_reject {
+					top:					75%;
+				}
+				&:hover {
+					color:					white !important;
+					text-decoration:		none !important;
+				}
+			}
+		}
+	}
+}

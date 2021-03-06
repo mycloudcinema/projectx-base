@@ -1,0 +1,12 @@
+<access functions="/base/media/mediatypes,/base/media/media,/base/media/index">
+
+	<li id="menuMediaCore">
+		<a href="#mediaCoreSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-cogs"></i> $dict{media_core} <span class="caret"></span></a>
+		<ul class="collapse list-unstyled" id="mediaCoreSubmenu">
+			<access functions="/base/media/mediatypes"><li id="menuMediaTypes"><a href="/base/media/mediatypes"><span>$dict{media_types}</span></a></li></access>
+			<access functions="/base/media/media"><li id="menuMedia"><a href="/base/media/media"><span>$dict{media}</span></a></li></access>
+			<access functions="/base/media/index"><li id="menuMediaManager"><a href="/base/media/index"><span>$dict{media_manager}</span></a></li></access>
+		</ul>
+	</li>
+
+</access>

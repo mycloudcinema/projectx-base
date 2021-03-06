@@ -1,0 +1,68 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<div class="col-md-6">
+
+	<div class="rc-form">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-bookmark"></i> $dict{general}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{page_name}</div>
+				<div class="rc-form-data">
+					{{tab.entity.page_name || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{language}</div>
+				<div class="rc-form-data">
+					{{tab.entity.language || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{last_updated}</div>
+				<div class="rc-form-data">
+					{{tab.entity.last_updated | moment:'userShortFormat' || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{last_updated_by}</div>
+				<div class="rc-form-data">
+					{{tab.entity.last_updated_by_name || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{replication_id}</div>
+				<div class="rc-form-data">
+					{{tab.entity.replication_id || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{replication_source}</div>
+				<div class="rc-form-data">
+					{{tab.entity.replication_source || '-'}}
+				</div>
+			</div>
+		</div>
+
+		<part name="_templates/base/audit_info_view"></part>
+
+	</div>
+
+</div>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-pencil"></i> $dict{online_help_content}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group" ng-bind-html="tab.entity.online_help_content"></div>
+		</div>
+
+	</div>
+
+</div>

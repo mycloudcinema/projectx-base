@@ -1,0 +1,29 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-bookmark"></i> $dict{general}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{print_definition_type}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="print_definition_type_name" name="print_definition_type_name" class="form-control dataentry-data" ng-model="tab.edit_entity.print_definition_type_name"></text>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+		<part name="_templates/base/audit_info_edit"></part>
+	</div>
+
+</div>

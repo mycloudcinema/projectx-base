@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="318px" height="318px" viewBox="0 0 318 318" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.1 (72631) - https://sketchapp.com -->
+    <title>Seat Overlay</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#A80900" offset="0%"></stop>
+            <stop stop-color="#A30800" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="98.2730514%" id="linearGradient-2">
+            <stop stop-color="#C70C00" offset="0%"></stop>
+            <stop stop-color="#A40800" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#C70C00" offset="0%"></stop>
+            <stop stop-color="#A40800" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Sold" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Seat-Overlay" transform="translate(1.000000, 1.000000)">
+            <rect id="Rectangle" stroke="#555555" fill="#CB0D00" x="8.5" y="14.5" width="299" height="299" rx="8"></rect>
+            <polygon id="Rear-Bolster" stroke="#BBBBBB" fill="url(#linearGradient-1)" points="8 315.421143 78.6666667 249.973323 237.268907 250.973323 308 316"></polygon>
+            <path d="M8,314.421143 L78.6666667,249.973323 L78.6666667,93.9233767 C44.45189,5.5151495 21.4187954,-20.1992706 9.56738281,16.7801163 C-2.28402978,53.7595032 -2.80649072,152.973179 8,314.421143 Z" id="Left-Bolster" stroke="#BBBBBB" fill="url(#linearGradient-2)"></path>
+            <path d="M245,315.421143 L315.666667,250.973323 L315.666667,94.9233767 C281.45189,6.5151495 258.418795,-19.1992706 246.567383,17.7801163 C234.71597,54.7595032 234.193509,153.973179 245,315.421143 Z" id="Right-Bolster" stroke="#BBBBBB" fill="url(#linearGradient-3)" transform="translate(276.467787, 158.421143) scale(-1, 1) translate(-276.467787, -158.421143) "></path>
+        </g>
+    </g>
+</svg>

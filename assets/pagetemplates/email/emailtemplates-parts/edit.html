@@ -1,0 +1,58 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-bookmark"></i> $dict{general}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{email_event_type}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="event_type" name="event_type" class="form-control dataentry-data" ng-model="tab.edit_entity.event_type"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{language}</div>
+				<div class="rc-form-data">
+					<rc-select ng-model="tab.edit_entity.language" webservice="base/rc_languages/getLanguagesList" value="language" label="language_name" required></rc-select>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{email_subject}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="subject" name="subject" class="form-control dataentry-data" ng-model="tab.edit_entity.subject"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{bcc_addresses}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="bcc_addresses" name="bcc_addresses" class="form-control dataentry-data" ng-model="tab.edit_entity.bcc_addresses"></text>
+				</div>
+			</div>
+		</div>
+
+		<part name="_templates/base/audit_info_edit"></part>
+
+	</div>
+
+</div>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-envelope"></i> $dict{email_template}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<textarea style="height: 500px;" ui-tinymce="ctrl.con.tinymceOptions" id="template" rows="15" class="form-control dataentry-data" ng-model="tab.edit_entity.template"></textarea>
+			</div>
+		</div>
+
+	</div>
+
+</div>

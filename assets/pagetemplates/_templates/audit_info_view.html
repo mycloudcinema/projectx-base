@@ -1,0 +1,35 @@
+<div class="rc-form-heading">
+	<i class="fa fa-lock"></i> $dict{audit_info}
+</div>
+<div class="rc-form-body">
+	<div class="rc-form-group">
+		<div class="rc-form-prompt"><strong>$dict{record_id}</strong></div>
+		<div class="rc-form-data">
+			<p><strong>{{tab.entity.record_id || '-'}}</strong></p>
+		</div>
+	</div>
+	<div class="rc-form-group">
+		<div class="rc-form-prompt">$dict{last_updated}</div>
+		<div class="rc-form-data">
+			<p>{{tab.entity.last_updated | moment:'mediumDateTime' || '-'}}</p>
+		</div>
+	</div>
+	<div class="rc-form-group">
+		<div class="rc-form-prompt">$dict{last_updated_by}</div>
+		<div class="rc-form-data">
+			<p>{{tab.entity.last_updated_by_name || '-'}}</p>
+		</div>
+	</div>
+	<div class="rc-form-group">
+		<div class="rc-form-prompt">$dict{replication_id}</div>
+		<div class="rc-form-data">
+			<p>{{tab.entity.replication_id || '-'}}</p>
+		</div>
+	</div>
+	<div class="rc-form-group">
+		<div class="rc-form-prompt">$dict{replication_source}</div>
+		<div class="rc-form-data">
+			<p>{{tab.entity.replication_source || '-'}}</p>
+		</div>
+	</div>
+</div>

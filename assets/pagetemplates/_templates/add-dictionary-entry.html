@@ -1,0 +1,33 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+<cache timeout="0"></cache>
+
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close();" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+	<h4 class="modal-title" id="myModalLabel">$dict{add_dictionary_entry}</h4>
+</div>
+
+<div class="modal-body">
+
+	<form>
+		<div class="form-group">
+			<label>$dict{dictionary_category}</label>
+			<input id="dictionary_category" type="text" ng-model="dictionary_category" class="form-control">
+		</div>
+		<div class="form-group">
+			<label>$dict{dictionary_key}</label>
+			<input id="dictionary_key" type="text" ng-model="dictionary_key" class="form-control text-uppercase">
+		</div>
+		<div class="form-group">
+			<label>$dict{dictionary_data}</label>
+			<input id="dictionary_data" type="text" ng-model="dictionary_data" class="form-control">
+		</div>
+	</form>
+
+</div>
+
+<div class="modal-footer">
+	<button type="button" class="btn btn-default" ng-click="close();">$dict{close}</button>
+	<button type="button" class="btn btn-primary" ng-click="save();">$dict{save_changes}</button>
+</div>

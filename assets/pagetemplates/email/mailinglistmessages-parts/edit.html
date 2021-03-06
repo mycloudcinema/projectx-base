@@ -1,0 +1,46 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-bookmark"></i> $dict{general}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{mailing_list_id}</div>
+				<div class="rc-form-data">
+					<rc-select ng-model="tab.edit_entity.mailing_list_id" webservice="base/rc_mailinglists/getMailingListsList" value="mailing_list_id" label="mailing_list_name" required></rc-select>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{mailing_list_member_id}</div>
+				<div class="rc-form-data">
+					<rc-select ng-model="tab.edit_entity.mailing_list_member_id" webservice="base/rc_mailinglistmembers/getMailingListMembersList" value="mailing_list_member_id" label="email_address" required></rc-select>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{email_message_id}</div>
+				<div class="rc-form-data">
+					<rc-select ng-model="tab.edit_entity.email_message_id" webservice="base/rc_emailmessages/getEmailMessagesList" value="email_message_id" label="email_message_id" required></rc-select>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{message_status}</div>
+				<div class="rc-form-data">
+					<input type="checkbox" id="message_status" name="message_status" class="js-switch switchery-small" ui-switch="{size: 'small'}" ng-model="tab.edit_entity.message_status"/>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+<div class="col-md-6">
+	<div class="rc-form rc-form-edit">
+		<part name="_templates/base/audit_info_edit"></part>
+	</div>
+</div>

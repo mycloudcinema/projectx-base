@@ -1,0 +1,132 @@
+<cache timeout="0"></cache>
+
+<resource name="rcWebservice"></resource>
+<resource name="AngularJS_Filters"></resource>
+<resource name="rcTable"></resource>
+<resource name="rcDataEntry"></resource>
+
+<resource name="rcBytes"></resource>
+<resource name="rcCropperDialog"></resource>
+<resource name="rcFocus"></resource>
+<resource name="rcImageSelect"></resource>
+<resource name="rcInteger"></resource>
+
+<resource name="MediaEntity"></resource>
+<resource name="SitesEntity"></resource>
+
+<resource name="AngularJS_Input"></resource>
+<resource name="fullPage"></resource>
+
+<div ng-controller="MediaManagerController as con" ng-cloak="">
+
+	<div class="container-fluid">
+
+		<form class="form-horizontal">
+
+			<div class="row equalizer">
+				<div class="col-xs-8">
+					<div class="row">
+
+						<div class="col-xs-4">
+
+							<div class="well watch">
+
+								<div class="form-group">
+									<div class="radio col-xs-offset-1">
+										<label for="optionsRadios1">
+											<input type="radio" ng-model="con.info.media_type_id" ng-click="con.setMediaType()" name="optionsRadios" id="optionsRadios1" value="1" integer>$dict{media_image}
+										</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="radio col-xs-offset-1">
+										<label for="optionsRadios2">
+											<input type="radio" ng-model="con.info.media_type_id" ng-click="con.setMediaType()" name="optionsRadios" id="optionsRadios2" value="2" integer disabled>$dict{media_video}
+										</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="radio col-xs-offset-1">
+										<label for="optionsRadios3">
+											<input type="radio" ng-model="con.info.media_type_id" ng-click="con.setMediaType()" name="optionsRadios" id="optionsRadios3" value="3" integer>$dict{media_gallery}
+										</label>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="col-xs-8">
+
+							<div class="well watch">
+
+								<div class="row">
+									<div class="form-group">
+										<label for="site_name" class="control-label col-xs-3">$dict{site_name}</label>
+										<rc-select class="col-xs-9" ng-model="con.info.site_name" webservice="base/rc_sites/getSitesList" value="site_name" label="site_name"></rc-select>
+									</div>
+								</div>
+
+								<!-- Non Video Uploads go through the Image Cropper -->
+								<div class="row" ng-if="con.info.media_type_id === 1 || con.info.media_type_id === 3">
+									<div class="col-xs-9 col-xs-offset-3">
+										<rc-cropper-dialog id="cropper1" info="{{con.info}}" options="{{con.options}}" rc-disabled="!con.info.site_name" ng-cloak>$dict{add_image}</rc-cropper-dialog>
+									</div>
+								</div>
+
+								<!-- Video Uploads go directly the File Upload -->
+								<div ng-if="con.info.media_type_id === 2">
+
+									<form action="/webservices/base/rc_fileupload/uploadVideo" enctype="multipart/form-data" method="post">
+										<div class="row">
+											<div class="col-xs-9 col-xs-offset-3">
+												<input type="file" name="image" required/>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-xs-9 col-xs-offset-3">
+												<input type="submit" class="btn btn-primary" value="$dict{upload_trailer}">
+											</div>
+										</div>
+									</form>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="row">
+
+						<div class="col-xs-12">
+
+							<div class="well">
+								<rc-table class="table table-condensed table-striped table-hover" controls="con.controls" collection="con.mediaData" ng-if="con.mediaData" view-mode="list"></rc-table>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="col-xs-4">
+
+					<div class="well watch" ng-if="con.info.media_type_id === 1 || con.info.media_type_id === 3">
+						<img ng-src="{{con.previewFile}}" ng-show="con.previewFile" class="img-responsive centered" />
+						<hr>
+						<p>{{con.previewFile}}</p>
+					</div>
+
+				</div>
+
+			</div>
+
+		</form>
+
+	</div>
+
+</div>

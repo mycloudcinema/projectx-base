@@ -1,0 +1,14 @@
+<access functions="/base/network/device,/base/network/devicestatus,/base/network/devicetype,/base/network/location,/base/network/locationstatus">
+
+	<li id="menuNetworkCore">
+		<a href="#menuNetworkSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-cogs"></i> $dict{network} <span class="caret"></span></a>
+		<ul class="collapse list-unstyled" id="menuNetworkSubmenu">
+			<access functions="/base/network/device"><li id="menuDevice"><a href="/base/network/device"><span>$dict{device_manager}</span></a></li></access>
+			<access functions="/base/network/devicestatus"><li id="menuDeviceStatus"><a href="/base/network/devicestatus"><span>$dict{device_status}</span></a></li></access>
+			<access functions="/base/network/devicetype"><li id="menuDeviceType"><a href="/base/network/devicetype"><span>$dict{device_type}</span></a></li></access>
+			<access functions="/base/network/location"><li id="menuLocation"><a href="/base/network/location"><span>$dict{location}</span></a></li></access>
+			<access functions="/base/network/locationstatus"><li id="menuLocationStatus"><a href="/base/network/locationstatus"><span>$dict{location_status}</span></a></li></access>
+		</ul>
+	</li>
+
+</access>

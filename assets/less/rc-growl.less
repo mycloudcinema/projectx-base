@@ -1,0 +1,52 @@
+.growl_container {
+	display:								block;
+	height:									auto;
+	position:								fixed;
+	right:									10px;
+	top:									10px;
+	width:									350px;
+	z-index:								9999;
+	.growl_message {
+		display:							block;
+		background:							rgba(0, 0, 0, 0.8);
+		border:								1px solid gray;
+		border-radius:						5px;
+		color:								white;
+		opacity:							0;
+		padding:							20px;
+		position:							relative;
+		margin-bottom:						10px;
+		box-shadow:							2px 2px 5px rgba(0, 0, 0, 0.5);
+		right:								10px;
+		&.fadeIn {
+			-webkit-opacity:				1;
+			-moz-opacity:					1;
+			opacity:						1;
+			-webkit-transition:				all 3s ease;
+			-moz-transition:				all 3s ease;
+			-ms-transition:					all 3s ease;
+			-o-transition:					all 3s ease;
+			transition:						all 3s ease;
+		}
+		.growl_close {
+			cursor:							pointer;
+			position:						absolute;
+			top:							5px;
+			right:							10px;
+			font-size:						1.6em;
+		}
+		.growl_title {
+			color:							silver;
+			font-weight:					@boldWeight;
+			font-size:						1.4em;
+			border-bottom:					1px solid #555;
+			margin-bottom:					15px;
+			padding-bottom:					2px;
+		}
+		.growl_text {
+			color:							silver;
+			font-weight:					normal;
+			font-size:						1.1em;
+		}
+	}
+}

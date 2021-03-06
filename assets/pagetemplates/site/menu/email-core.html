@@ -1,0 +1,16 @@
+<access functions="/base/email/emailmessages,/base/email/emailprofiles,/base/email/emailtemplates,/base/email/emailattachments,/base/email/mailinglists,/base/email/mailinglistmembers,/base/email/mailinglistmessages">
+
+	<li id="menuEmailCore">
+		<a href="#emailCoreSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-envelope"></i> $dict{email_core} <span class="caret"></span></a>
+		<ul class="collapse list-unstyled" id="emailCoreSubmenu">
+			<access functions="/base/email/emailattachments"><li id="menuEmailAttachments"><a href="/base/email/emailattachments"><span>$dict{email_attachments}</span></a></li></access>
+			<access functions="/base/email/emailmessages"><li id="menuEmailMessages"><a href="/base/email/emailmessages"><span>$dict{email_messages}</span></a></li></access>
+			<access functions="/base/email/emailprofiles"><li id="menuEmailProfiles"><a href="/base/email/emailprofiles"><span>$dict{email_profiles}</span></a></li></access>
+			<access functions="/base/email/emailtemplates"><li id="menuEmailTemplates"><a href="/base/email/emailtemplates"><span>$dict{email_templates}</span></a></li></access>
+			<access functions="/base/email/mailinglists"><li id="menuMailingLists"><a href="/base/email/mailinglists"><span>$dict{mailing_lists}</span></a></li></access>
+			<access functions="/base/email/mailinglistmembers"><li id="menuMailingListMembers"><a href="/base/email/mailinglistmembers"><span>$dict{mailing_list_members}</span></a></li></access>
+			<access functions="/base/email/mailinglistmessages"><li id="menuMailingListMessages"><a href="/base/email/mailinglistmessages"><span>$dict{mailing_list_messages}</span></a></li></access>
+		</ul>
+	</li>
+
+</access>

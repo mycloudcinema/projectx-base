@@ -1,0 +1,12 @@
+<access functions="/base/security,/base/users/index,/base/users/userroles">
+
+	<li id="menuSecurityCore">
+		<a href="#securityCoreSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-lock"></i> $dict{security_core} <span class="caret"></span></a>
+		<ul class="collapse list-unstyled" id="securityCoreSubmenu">
+			<access functions="/base/security"><li id="menuSecurityManager"><a href="/base/security"><span>$dict{security_manager}</span></a></li></access>
+			<access functions="/base/users/index"><li id="menuUsers"><a href="/base/users/index"><span>$dict{users}</span></a></li></access>
+			<access functions="/base/users/userroles"><li id="menuUserRoles"><a href="/base/users/userroles"><span>$dict{user_roles}</span></a></li></access>
+		</ul>
+	</li>
+
+</access>

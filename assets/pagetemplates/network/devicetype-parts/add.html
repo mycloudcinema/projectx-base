@@ -1,0 +1,34 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-bookmark"></i> $dict{general}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{device_type}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="device_type_name" name="device_type_name" class="form-control dataentry-data" ng-model="new_entity.device_type_name"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{is_printer}</div>
+				<div class="rc-form-data">
+					<input type="checkbox" id="is_printer" name="is_printer" class="js-switch switchery-small" ui-switch="{size: 'small'}" ng-model="new_entity.is_printer"/>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{create_transactions}</div>
+				<div class="rc-form-data">
+					<input type="checkbox" id="create_transactions" name="create_transactions" class="js-switch switchery-small" ui-switch="{size: 'small'}" ng-model="new_entity.create_transactions"/>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

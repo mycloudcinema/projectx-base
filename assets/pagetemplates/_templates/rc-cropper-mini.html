@@ -1,0 +1,98 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+<cache timeout="0"></cache>
+
+
+<div class="modal-header">
+    <button type="button" class="close" aria-label="Close" ng-click="close();"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">{{options.dialog_title}}</h4>
+</div>
+
+<div class="modal-body">
+
+    <div class="row">
+
+        <!-- Image Cropper Directive is only on Desktop Computers -->
+        <div class="hidden-xs hidden-sm col-md-6 col-lg-6">
+            <rc-cropper busy="cropperWorking" crop-box-data="currentlyEditedImage.cropbox" aspect-ratio="{{options.aspect_ratio}}" auto-crop="false" cropper-controls="cropperControls" ng-model="currentlyEditedImage.data"></rc-cropper>
+        </div>
+        <div class="hidden-md hidden-lg col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3" ng-if="image">
+            <img ng-src="{{image.data}}" class="img-responsive"/>
+        </div>
+
+		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-if="!(image)">
+	        <div class="hidden-md hidden-lg">
+				<div class="btn btn-default" onclick="document.getElementById('file').click()"><i class="fa fa-upload"></i> $dict{select_image}</div>
+			</div>
+	        <div class="hidden-xs hidden-sm">
+		        <div class="btn btn-default" onclick="document.getElementById('file').click()"><i class="fa fa-upload"></i> $dict{select_image_to_crop}</div>
+			</div>
+		</div>
+
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-if="image">
+
+			<form class="form form-horizontal">
+
+				<div class="form-group">
+					<label>$dict{original_resolution}</label>
+					<div class="form-control">
+						{{image.naturalWidth}} pixels x {{image.naturalHeight}} pixels
+					</div>
+				</div>
+				<div class="form-group">
+					<label>$dict{original_size}</label>
+					<div class="form-control">
+						{{image.size | rcBytes}}
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="btn btn-default" onclick="document.getElementById('file').click()"><i class="fa fa-upload"></i> $dict{select_another_image}</div>
+				</div>
+				<!--
+				<div class="form-group" ng-if="currentlyEditedImage">
+					<label>$dict{cropped_resolution}</label>
+					<div class="form-control">
+						{{size.naturalWidth + "x" + size.naturalHeight}}
+					</div>
+				</div>
+				-->
+
+			</form>
+
+        </div>
+
+    </div>
+
+	<div class="row hidden-xs hidden-sm col-md-6 col-lg-6">
+
+        <hr/>
+
+        <!-- Image Cropper Action Buttons -->
+        <div class="col-xs-5">
+            <div class="btn-group btn-group-sm">
+                <div class="btn btn-default" ng-click="cropperControls.rotate(-90);"><i class="fa fa-rotate-left"></i></div>
+                <div class="btn btn-default" ng-click="cropperControls.rotate(90);"><i class="fa fa-rotate-right"></i></div>
+                <div class="btn btn-default" ng-click="cropperControls.flip(1);"><i class="fa fa-exchange"></i></div>
+                <div class="btn btn-default" ng-click="cropperControls.flip(-1);"><i class="fa fa-exchange fa-rotate-90"></i></div>
+            </div>
+        </div>
+
+    </div>
+
+	<input type="file" id="file" style="opacity: 0; height:0px; width:0px;" />
+
+</div>
+
+<div class="modal-footer">
+	<div class="hidden-md hidden-lg">
+		<div class="btn-group">
+			<button class="btn btn-default" ng-click="close()">$dict{close}</button>
+			<button class="btn btn-primary" ng-click="save();">$dict{save}</button>
+		</div>
+	</div>
+	<div class="hidden-xs hidden-sm">
+		<div class="btn-group">
+			<button class="btn btn-default" ng-click="close()">$dict{close}</button>
+			<button class="btn btn-primary" ng-click="save();" ng-disabled="!currentlyEditedImage || saving"><i class="fa fa-refresh fa-spin" ng-if="saving"></i> $dict{save}</button>
+		</div>
+    </div>
+</div>

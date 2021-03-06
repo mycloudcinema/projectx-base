@@ -1,0 +1,29 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div ng-repeat="language in ctrl.con.supportedLanguages">
+			<div class="rc-form-heading">
+				<i class="fa fa-commenting-o"></i> {{language.language}}
+			</div>
+			<div class="rc-form-body">
+				<div class="rc-form-group">
+					<div class="rc-form-prompt">$dict{display_name}</div>
+					<div class="rc-form-data">
+						{{tab.entity.language_name_list[language.language].language_name || '-'}}
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+<div class="col-md-6">
+	<div class="rc-form rc-form-edit">
+		<part name="_templates/base/audit_info_view"></part>
+	</div>
+</div>

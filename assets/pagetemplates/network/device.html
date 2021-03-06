@@ -1,0 +1,52 @@
+<cache timeout="0"></cache>
+
+<resource name="DeviceEntity"></resource>
+
+<resource name="AngularJS_Input"></resource>
+<resource name="AngularJS_Switchery"></resource>
+<resource name="BootstrapDatepicker"></resource>
+
+<resource name="rcDataEntry"></resource>
+<resource name="rcTable"></resource>
+<resource name="rcWebservice"></resource>
+<resource name="rcFocus"></resource>
+
+<div ng-controller="DeviceController as con" ng-cloak="">
+
+	<div class="row">
+		<div class="col-sm-12">
+			<rc-dataentry class="dataentry" entity-manager="con.DeviceManager" columns="con.columns" order="con.order" options="con.options" template-add="con.templateAdd" template-view="con.templateView" template-edit="con.templateEdit" id-field="device_id" name-field="device_name">
+				<div class="grid-view wide pointer text-center" ng-click="$parent.$parent.rowClick($parent.$parent.row)">
+					<i class="fa watermark" ng-class="{'fa-desktop': $parent.$parent.row.device_type_id == 0}"></i>
+					<div class="caption" ng-class="{'active': $parent.$parent.row.active, 'inactive': !$parent.$parent.row.active, 'undefined': !$parent.$parent.row.device_type_id && !$parent.$parent.row.active}">
+						<h5>{{$parent.$parent.row.device_name}}</h5>
+					</div>
+					<p ng-if="$parent.$parent.$parent.row.linked_device_name">
+						<strong>$dict{linked_device}</strong><br>
+						{{$parent.$parent.$parent.row.linked_device_name}}
+					</p>
+					<p ng-if="$parent.$parent.$parent.row.printer_name">
+						<strong>$dict{printer}</strong><br>
+						{{$parent.$parent.$parent.row.printer_name}}<br>
+					</p>
+					<p ng-if="$parent.$parent.$parent.row.device_type_id == 2">
+						<strong>$dict{printer_ip_address}</strong><br>
+						{{$parent.$parent.$parent.row.config_json.printer_ip_address}}<br>
+						<strong>$dict{printer_port}</strong><br>
+						{{$parent.$parent.$parent.row.config_json.printer_port}}<br>
+					</p>
+					<p ng-if="$parent.$parent.row.user_name">
+						<strong>$dict{current_user}</strong><br>
+						{{$parent.$parent.$parent.row.user_name}}<br>
+						<strong>$dict{last_active}</strong><br>
+						{{$parent.$parent.$parent.row.last_updated | moment:'mediumDateTime'}}
+					</p>
+					<div class="caption fixed bottom" ng-class="{'active': $parent.$parent.row.active, 'inactive': !$parent.$parent.row.active, 'undefined': !$parent.$parent.row.device_type_id && !$parent.$parent.row.active}">
+						{{$parent.$parent.row.device_type_name}}
+					</div>
+				</div>
+			</rc-dataentry>
+		</div>
+	</div>
+
+</div>

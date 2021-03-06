@@ -1,0 +1,17 @@
+<cache timeout="0"></cache>
+
+<resource name="rcDataEntry"></resource>
+<resource name="rcFilter"></resource>
+<resource name="rcTable"></resource>
+<resource name="rcWebservice"></resource>
+
+<resource name="AngularJS_Filters"></resource>
+<resource name="AngularJS_Input"></resource>
+<resource name="AngularJS_Switchery"></resource>
+<resource name="Moment"></resource>
+
+<resource name="MailingListMembersEntity"></resource>
+
+<div ng-controller="MailingListMembersController as con" ng-cloak="">
+	<rc-dataentry class="dataentry" entity-manager="con.MailingListMembersManager" columns="con.columns" order="con.order" options="con.options" template-add="con.templateAdd" template-view="con.templateView" template-edit="con.templateEdit" id-field="mailing_list_member_id" name-field="mailing_list_member_id"></rc-dataentry>
+</div>

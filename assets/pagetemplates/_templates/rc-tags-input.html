@@ -1,0 +1,11 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+<cache timeout="0"></cache>
+
+<div class='tags-input'>
+    <span ng-repeat="tag in tags" class="animate" ng-dblclick="removeTag($index);">
+        <span class='tag label animate' ng-class='{"label-warning attention blink": containsIndex === $index, "label-danger": deleteIndex === $index || selectAll,  "label-primary": ($parent.params.containsIndex !== $index && $parent.params.deleteIndex !== $index)}'>
+            <span class='tag-text' ng-bind="tag[label]"></span> <span class='fa fa-times hover' ng-click='removeTag($index);'></span>
+        </span>
+    </span>&nbsp;
+    <input type='text' class='tag-input' ng-keydown="handleKeypress($event);" uib-typeahead="o as o[label] for o in typeahead_options | filter:$viewValue | limitTo:8" typeahead-editable="false" typeahead-on-select="onSelect($item, $model, $label)" ng-model="selected_item"/>
+</div>

@@ -1,0 +1,17 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+<cache timeout="0"></cache>
+
+<div>
+	<center ng-if="loading" style="width: 100%">
+		<i class="fa fa-circle-o-notch fa-5x fa-spin" style="margin:auto;"></i>
+	</center>
+	<center ng-if="error" style="width: 100%">
+		<i class="fa fa-frown-o fa-5x" style="margin:auto;"></i>
+	</center>
+	<center ng-if="noimg" style="width: 100%">
+		<i class="fa fa-picture-o fa-5x" style="margin:auto;"></i>
+	</center>
+	<div class="img-container" ng-show="!loading && !error && !noimg">
+		<img style="width:100%;" alt=""/>
+	</div>
+</div>

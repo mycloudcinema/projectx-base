@@ -1,0 +1,158 @@
+@panel-background-default:		rgba(39,128,227,0.95);
+@panel-heading-background-default:	black;
+@panel-height:					400px;
+@animation-duration:			300ms;
+.rc-panel {
+	position:					fixed;
+	z-index:					1040;
+	background-color:			rgba(0, 0, 0, 0.85);
+	padding:					0px;
+	.rc-panel-heading {
+		background-color:		@panel-background-default;
+		color:					white;
+		font-size:				1.2em;
+		padding:				10px;
+		width:					100%;
+		h1,h2,h3,h4,h5,h6,span {
+			margin:				0px;
+		}
+	}
+	.rc-panel-body {
+		padding:				10px;
+		height:					100%;
+		overflow:				scroll;
+	}
+
+	&.top {
+		height:					@panel-height;
+		width:					100%;
+		transition:				top @animation-duration ease-in-out;
+		-webkit-transition:		top @animation-duration ease-in-out;
+		top:					-@panel-height;
+		left:					0px;
+		&.show{
+			top:				0%;
+		}
+	}
+	&.bottom {
+		height:					@panel-height;
+		width:					100%;
+		transition:				bottom @animation-duration ease-in-out;
+		-webkit-transition:		bottom @animation-duration ease-in-out;
+		bottom:					-@panel-height;
+		left:					0px;
+		&.show{
+			bottom:				0;
+		}
+	}
+	&.left {
+		height:					100%;
+		width:					@panel-height;
+		transition:				left @animation-duration ease-in-out;
+		-webkit-transition:		left @animation-duration ease-in-out;
+		top:					0;
+		left:					-@panel-height;
+		&.show {
+			left:				0;
+		}
+	}
+	&.right {
+		height:					100%;
+		width:					@panel-height;
+		transition:				right @animation-duration ease-in-out;
+		-webkit-transition:		right @animation-duration ease-in-out;
+		top:					0;
+		right:					-@panel-height;
+		&.show {
+			right:				0;
+		}
+	}
+
+}
+
+@panel-width:					375px;
+@panel-background:				#666666;
+@panel-background-dark:			#333333;
+@panel-animation-duration:		200ms;
+
+div.rc-panel-wrapper {
+
+	float:						left;
+	width:						100%;
+
+	> .rc-panel-menu {
+
+		background-color:		@panel-background;
+		float:					left;
+		position:				fixed;
+		z-index:				99999;
+		transition:				left @panel-animation-duration ease-in-out;
+		-webkit-transition:		left @panel-animation-duration ease-in-out;
+		height:					100%;
+		min-height:				100%;
+		width:					@panel-width;
+		left:					-@panel-width;
+		top:					0px;
+
+		.header {
+
+			background-color:	@panel-background-dark;
+			line-height:		1em;
+			color:				white;
+			font-size:			1em;
+			font-weight:		normal;
+			margin-bottom:		10px;
+			width:				@panel-width;
+			padding:			5px;
+		}
+	}
+	> .rc-panel-content {
+
+		float:					left;
+		position:				absolute;
+		transition:				all @panel-animation-duration ease-in-out;
+		-webkit-transition:		all @panel-animation-duration ease-in-out;
+		overflow-x:				hidden;
+		width:					100%;
+		left:					0px;
+	}
+	&.open {
+
+		> .rc-panel-menu {
+			left:				0px;
+		}
+		>.rc-panel-content {
+			width:				~"calc(100% - @{panel-width})";
+			left:				@panel-width;
+		}
+	}
+}
+
+div[rc-slide-in] {
+
+	> div[rc-slide-in-menu] {
+
+	}
+	> div[rc-slide-in-content] {
+
+	}
+
+	&.narrow {
+
+		div[rc-slide-in-menu] {
+			width:				100px;
+		}
+		div[rc-slide-in-content] {
+			width:				~"calc(100% - 200px)";
+		}
+	}
+	&.closed {
+
+		div[rc-slide-in-menu] {
+			width:				0px;
+		}
+		div[rc-slide-in-content] {
+			width:				100%;
+		}
+	}
+}

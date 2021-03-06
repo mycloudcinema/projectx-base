@@ -1,0 +1,40 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<div class="col-md-6">
+
+	<div class="rc-form">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-bookmark"></i> $dict{general}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{device_type}</div>
+				<div class="rc-form-data">
+					{{tab.entity.device_type_name || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{is_printer}</div>
+				<div class="rc-form-data">
+					<i ng-class='{"fa fa-check-circle-o": (tab.entity.is_printer == true), "fa fa-circle-o": (tab.entity.is_printer == false)}'></i>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{create_transactions}</div>
+				<div class="rc-form-data">
+					<i ng-class='{"fa fa-check-circle-o": (tab.entity.create_transactions == true), "fa fa-circle-o": (tab.entity.create_transactions == false)}'></i>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+<div class="col-md-6">
+	<div class="rc-form rc-form-edit">
+		<part name="_templates/base/audit_info_view"></part>
+	</div>
+</div>

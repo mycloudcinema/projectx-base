@@ -1,0 +1,40 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+<cache timeout="0"></cache>
+
+<style>
+	.modal-body {
+		background: url('/public/images/backgrounds/login.jpg') no-repeat center center fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+</style>
+
+<div class="modal-header">
+	<h4 class="modal-title"><img src="/public/images/logos/application_32_black.png" class="text-center"/> $dict{login_header}</h4>
+</div>
+<div class="modal-body" style="">
+	<div class="well" ng-show="!loginError">
+		$dict{user_session_expired}
+	</div>
+	<div class="alert alert-danger" ng-show="loginError">
+		{{loginError}}
+	</div>
+	<ng-form name="nameDialog" novalidate role="form">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="form-group input-group">
+						<input type="text" class="form-control" ng-model="login.username" name="username" autocomplete="on" autocorrect="off" placeholder="$dict{enterusername}" autofocus tabindex="1" required>
+					</div>
+					<div class="form-group input-group">
+						<input type="password" class="form-control" ng-model="login.password" name="password" autocomplete="on" autocorrect="off" placeholder="$dict{enterpassword}" tabindex="2" required>
+					</div>
+				</div>
+			</div>
+	</ng-form>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-default" ng-click="cancel()">$dict{cancel}</button>
+	<button type="button" class="btn btn-primary" ng-click="login()" ng-disabled="(nameDialog.$dirty && nameDialog.$invalid) || nameDialog.$pristine">$dict{login}</button>
+</div>

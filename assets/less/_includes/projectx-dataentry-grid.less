@@ -1,0 +1,79 @@
+@gridHeight:										296px;
+
+.grid-view {
+	border-radius:									@borderRadius;
+	height:											@gridHeight;
+	max-height:										@gridHeight;
+	border:											1px solid black;
+	padding:										0px;
+	text-overflow:									ellipsis;
+	white-space:									nowrap;
+	overflow:										hidden;
+	position:										relative;
+	display:block;
+	float:											left;
+	margin-right:									10px;
+	margin-bottom:									10px;
+	width:											150px;
+	&.wide {
+		width:										200px;
+	}
+	.caption {
+		background:									rgba(0,0,0,0.9);
+		color:										white;
+		padding:									4px;
+		width:										100%;
+		h5 {
+			text-overflow:							ellipsis;
+			white-space:							nowrap;
+			overflow:								hidden;
+			line-height:							1.3em;
+		}
+		&.fixed {
+			position:								absolute;
+		}
+		&.top {
+			top:									0px;
+			left:									0px;
+		}
+		&.bottom {
+			bottom:									0px;
+			left:									0px;
+		}
+		&.active {
+			background-color:						green;
+			color:									white;
+		}
+		&.inactive {
+			background-color:						orange;
+			color:									black;
+		}
+		&.undefined {
+			background-color:						red;
+			color:									white;
+		}
+	}
+	p {
+		padding:									5px;
+		text-align:									left;
+		z-index:									100;
+	}
+	img {
+		width:										100%;
+		height:										auto;
+		max-width:									100%;
+		max-height:									100%;
+		overflow:									hidden;
+		margin-top:									46px;
+	}
+	i {
+		&.watermark {
+			position:								absolute;
+			bottom:									0px;
+			right:									-30px;
+			color:									#eee;
+			font-size:								10em;
+			z-index:								-10;
+		}
+	}
+}

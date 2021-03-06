@@ -1,0 +1,46 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<div class="col-md-6">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-bookmark"></i> $dict{general}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{mailing_list_id}</div>
+				<div class="rc-form-data">
+					{{tab.entity.mailing_list_name || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{mailing_list_member_id}</div>
+				<div class="rc-form-data">
+					{{tab.entity.email_address || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{email_message_id}</div>
+				<div class="rc-form-data">
+					{{tab.entity.email_message_id || '-'}}
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{message_status}</div>
+				<div class="rc-form-data">
+					<i ng-class='{"fa fa-check-circle-o": (tab.entity.message_status == true), "fa fa-circle-o": (tab.entity.message_status == false)}'></i>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+<div class="col-md-6">
+	<div class="rc-form">
+		<part name="_templates/base/audit_info_view"></part>
+	</div>
+</div>

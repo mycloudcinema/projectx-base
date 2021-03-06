@@ -1,0 +1,65 @@
+<base-template name="_templates/base/angular_include_template"></base-template>
+
+<div class="col-md-12">
+
+	<div class="rc-form rc-form-edit">
+
+		<div class="rc-form-heading">
+			<i class="fa fa-bookmark"></i> $dict{general}
+		</div>
+		<div class="rc-form-body">
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{activity_log_date}</div>
+				<div class="rc-form-data">
+					<rc-datepicker class="datepicker dataentry-data" id="activity_log_date" ng-model="tab.edit_entity.activity_log_date"></rc-datepicker>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{site_name}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="site_name" name="site_name" class="form-control dataentry-data" ng-model="tab.edit_entity.site_name"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{user_id}</div>
+				<div class="rc-form-data">
+					<rc-select ng-model="tab.edit_entity.user_id" webservice="users/getUsersList" value="user_id" label="full_name" class="dataentry-data"></rc-select>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{user_class}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="user_class" name="user_class" class="form-control dataentry-data" ng-model="tab.edit_entity.user_class"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{cinema_id}</div>
+				<div class="rc-form-data">
+					<rc-select ng-model="tab.edit_entity.cinema_id" webservice="cinemas/getCinemasList" value="cinema_id" label="cinema_name" class="dataentry-data"></rc-select>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{function}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="function" name="function" class="form-control dataentry-data" ng-model="tab.edit_entity.function"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{action}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="action" name="action" class="form-control dataentry-data" ng-model="tab.edit_entity.action"></text>
+				</div>
+			</div>
+			<div class="rc-form-group">
+				<div class="rc-form-prompt">$dict{log_data}</div>
+				<div class="rc-form-data">
+					<text type="textbox" rc-id="log_data" name="log_data" class="form-control dataentry-data" ng-model="tab.edit_entity.log_data"></text>
+				</div>
+			</div>
+		</div>
+
+		<part name="_templates/base/audit_info_edit"></part>
+
+	</div>
+
+</div>
