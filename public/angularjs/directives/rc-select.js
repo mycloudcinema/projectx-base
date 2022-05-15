@@ -69,9 +69,9 @@
 			// I had to put an ngIf on the select element to prevent the directive from execution until the options are loaded
 			template:	`<div class='text-container rc-select' ng-class='{"rc-select-prefixed": iconPrefix}'>
 							<span class='rc-select-prefix' ng-if='iconPrefix'><i class='fa {{iconPrefix}}'></i></span>
-							<select ng-if='options' class='form-control' ng-disabled='!options' ng-options='($parent.value ? o[$parent.value] : o) as o[$parent.label] for o in options | orderBy: ($parent.sortOrder ? $parent.sortOrder : $parent.label)' ng-model='$parent.ngModel' ng-keyup='resetSelect($event)'></select>
-							<span class='rc-select-clear' ng-click='clearControl()' ng-if="!required && (ngModel || ngModel == 0)"><i class='fa fa-times-circle'></i></span>
-							<span class='rc-select-suffix'><i class='fa fa-chevron-down'></i></span>
+							<select ng-if='options' class='form-control' size='{{size}}' ng-disabled='!options' ng-options='($parent.value ? o[$parent.value] : o) as o[$parent.label] for o in options | orderBy: $parent.label' ng-model='$parent.ngModel' ng-keyup='resetSelect($event)'></select>
+							<span class='rc-select-clear' ng-click='clearControl()' ng-if="!required && (ngModel || ngModel == 0)" ng-hide="size>0"><i class='fa fa-times-circle'></i></span>
+							<span class='rc-select-suffix' ng-hide="size>0"><i class='fa fa-chevron-down'></i></span>
 							<div class='focus'>
 								<div></div>
 							</div>
@@ -79,6 +79,7 @@
 			scope: {
 				ngModel:	"=",
 				ngChange:	"=",
+				size:		"@",
 				parentId:	"="
 			},
 
@@ -92,7 +93,6 @@
 
 				scope.value = attrs.value;
 				scope.label = attrs.label;
-				scope.sortOrder = attrs.sortOrder;
 				scope.required = attrs.required;
 				scope.prefix = attrs.prefix !== undefined ? attrs.prefix : "/webservices/";
 				scope.userest = attrs.userest || false;

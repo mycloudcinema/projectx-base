@@ -1,4 +1,4 @@
-# Project X Base
+# Project X Minimal Base
 
 This module provides a quick start to building applications with the Project X Framework. This is the full version of the ProjectX Base files.
 

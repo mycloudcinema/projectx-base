@@ -19,14 +19,14 @@ in a consistent manner.
 	
 	"use strict";
 	
-	ng.module("rc.services").service("rcDialog", ["$modal", "$q", "$timeout", DialogHandler]);
+	ng.module("rc.services").service("rcDialog", ["$uibModal", "$q", "$timeout", DialogHandler]);
 	
 	//<editor-fold defaultstate="collapsed" desc="Dialog handler">
-	function DialogHandler($modal, $q, $timeout) {
+	function DialogHandler($uibModal, $q, $timeout) {
 
 		this.showLoading = function(){
 
-			var instance = $modal.open({
+			var instance = $uibModal.open({
 				windowClass: "rc-dialog loading",
 				backdrop: false,
 				controller: function ($scope) {
@@ -43,7 +43,7 @@ in a consistent manner.
 		//<editor-fold defaultstate="collapsed" desc="Error dialog">
 		this.error = function (message) {
 			var deferred = $q.defer();
-			var instance = $modal.open({
+			var instance = $uibModal.open({
 				windowClass: "rc-dialog error",
 				backdrop: "static",
 				controller: function ($scope) {
@@ -65,18 +65,18 @@ in a consistent manner.
 		this.prompt = function (message) {
 			var deferred = $q.defer();
 			var result;
-			var instance = $modal.open({
+			var instance = $uibModal.open({
 				windowClass: "rc-dialog prompt",
 				backdrop: "static",
-				controller: function ($scope, $modalInstance) {
+				controller: function ($scope, $uibModalInstance) {
 					$scope.message = message;
 					$scope.focus = true;
 
 					$scope.ok = function () {
-						$modalInstance.close(ng.copy($scope.text));
+						$uibModalInstance.close(ng.copy($scope.text));
 					};
 					$scope.cancel = function () {
-						$modalInstance.dismiss('cancel');
+						$uibModalInstance.dismiss('cancel');
 					};
 				},
 				templateUrl: "/public/angular-templates/prompt_dialog.html",
@@ -94,7 +94,7 @@ in a consistent manner.
 		this.info = function (message, title) {
 			var deferred = $q.defer();
 
-			var instance = $modal.open({
+			var instance = $uibModal.open({
 				windowClass: "rc-dialog info",
 				backdrop: true,
 				keyboard:true,
@@ -117,19 +117,19 @@ in a consistent manner.
 		//<editor-fold defaultstate="collapsed" desc="Confirm">
 		this.confirm = function (message, message_body) {
 			var deferred = $q.defer();
-			var instance = $modal.open({
+			var instance = $uibModal.open({
 				windowClass: "rc-dialog confirm",
 				backdrop: "static",
-				controller: function ($scope, $modalInstance) {
+				controller: function ($scope, $uibModalInstance) {
 					$scope.message = message;
 					$scope.message_body = message_body;
 					$scope.focus = true;
 
 					$scope.ok = function () {
-						$modalInstance.close();
+						$uibModalInstance.close();
 					};
 					$scope.cancel = function () {
-						$modalInstance.dismiss('no');
+						$uibModalInstance.dismiss('no');
 					};
 				},
 				templateUrl: "/public/angular-templates/confirm_dialog.html",
@@ -146,7 +146,7 @@ in a consistent manner.
 		//<editor-fold defaultstate="collapsed" desc="Login dialog">
 		this.login = function () {
 			var deferred = $q.defer();
-			var instance = $modal.open({
+			var instance = $uibModal.open({
 				windowClass: "rc-dialog error",
 				backdrop: "static",
 				controller: function ($scope) {

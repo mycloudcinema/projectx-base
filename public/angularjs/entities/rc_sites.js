@@ -29,6 +29,7 @@ Auto generated entity for sites
 				// This function should be applied to any field that has the 'Not null' constraint in the DB.
 				throw new Error("Could not create instance without site_name", data);
 			})();
+			this.site_options = JSONTryParse(data.site_options);
 			this.active = (data.active == 1 ? true : false);
 
 			// Set the audit values for the record

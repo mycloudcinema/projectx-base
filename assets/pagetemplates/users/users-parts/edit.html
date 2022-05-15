@@ -36,9 +36,7 @@
 				<div class="rc-form-prompt">$dict{active}</div>
 				<div class="rc-form-data">
 					<input type="checkbox" id="active" name="active" class="js-switch switchery-small" ui-switch="{size: 'small'}" ng-model="tab.edit_entity.active"/>
-					<p>
-						<div class="alert alert-warning" ng-if="!tab.edit_entity.active"><span class="fa fa-info-circle"></span> $dict{inactive_login_disabled}</div>
-					</p>
+					<div class="alert alert-warning" ng-if="!tab.edit_entity.active"><span class="fa fa-info-circle"></span> $dict{inactive_login_disabled}</div>
 				</div>
 			</div>
 		</div>

@@ -25,7 +25,7 @@
 	}
 
 	$(document).ready(function() {
-		setPageTitle("$dict{device_status}", "menuNetworkCore", "menuDeviceStatuses");
+		setPageTitle("$dict{device_status}", "menuNetworkCore", "menuDeviceStatus");
 	});
 
 })(angular);

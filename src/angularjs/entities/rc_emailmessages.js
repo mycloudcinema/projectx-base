@@ -36,7 +36,6 @@ Auto generated entity for email_messages
 			this.email_subject = data.email_subject || null;
 			this.email_body = data.email_body || null;
 			this.email_body_html = data.email_body_html || null;
-			this.email_html_format = data.email_body_html ? true : false;
 			this.email_priority = (data.email_priority == 1 ? true : false);
 			this.date_added = rcDateHandler.fromDB(data.date_added);
 			this.date_retry = rcDateHandler.fromDB(data.date_retry);

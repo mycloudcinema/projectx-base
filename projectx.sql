@@ -325,7 +325,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_add_activity_log`(var_function VARCHAR(50), var_action VARCHAR(50), var_Data LONGTEXT CHARACTER SET utf8mb4) RETURNS bigint(20)
+CREATE DEFINER=`root`@`%` FUNCTION `fn_add_activity_log`(var_function VARCHAR(50), var_action VARCHAR(50), var_Data LONGTEXT CHARACTER SET utf8mb4) RETURNS bigint(20)
 BEGIN
 
 	DECLARE key_userId					INTEGER;
@@ -390,7 +390,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_array`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS json
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_array`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS json
 BEGIN
 
 	IF (json_unquote(json_extract(value_jsonObject, value_key)) = 'null') THEN
@@ -415,7 +415,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_bigint`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS bigint(20)
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_bigint`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS bigint(20)
 BEGIN
 
     IF (json_unquote(json_extract(value_jsonObject, value_key)) = 'null') THEN
@@ -440,7 +440,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_bigint_d`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255), value_default BIGINT) RETURNS bigint(20)
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_bigint_d`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255), value_default BIGINT) RETURNS bigint(20)
 BEGIN
 
     IF (json_unquote(json_extract(value_jsonObject, value_key)) = 'null') THEN
@@ -465,7 +465,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_boolean`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS tinyint(1)
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_boolean`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS tinyint(1)
 BEGIN
 
     IF (LOWER(json_unquote(json_extract(value_jsonObject, value_key))) = 'null') THEN
@@ -496,7 +496,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_boolean_d`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255), value_default TINYINT(1)) RETURNS tinyint(1)
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_boolean_d`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255), value_default TINYINT(1)) RETURNS tinyint(1)
 BEGIN
 
     IF (LOWER(json_unquote(json_extract(value_jsonObject, value_key))) = 'null') THEN
@@ -527,7 +527,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_date`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS datetime
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_date`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS datetime
 BEGIN
 
 	IF (json_unquote(json_extract(value_jsonObject, value_key)) = 'null' OR json_unquote(json_extract(value_jsonObject, value_key)) IS NULL) THEN
@@ -552,7 +552,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_datetime`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS datetime
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_datetime`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS datetime
 BEGIN
 
     IF (json_unquote(json_extract(value_jsonObject, value_key)) = 'null') THEN
@@ -577,7 +577,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_datetime_d`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255), value_default DATETIME) RETURNS datetime
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_datetime_d`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255), value_default DATETIME) RETURNS datetime
 BEGIN
 
 	IF (json_unquote(json_extract(value_jsonObject, value_key)) = 'null' OR json_unquote(json_extract(value_jsonObject, value_key)) IS NULL) THEN
@@ -602,7 +602,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_datetime_gmt`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS datetime
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_datetime_gmt`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS datetime
 BEGIN
 
 	DECLARE var_dateTime					DATETIME;
@@ -631,7 +631,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_datetime_utc`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS datetime
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_datetime_utc`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS datetime
 BEGIN
 
 	DECLARE var_dateTime					DATETIME;
@@ -670,7 +670,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_datetime_utc_d`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255), value_default DATETIME) RETURNS datetime
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_datetime_utc_d`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255), value_default DATETIME) RETURNS datetime
 BEGIN
 
 	DECLARE var_dateTime					DATETIME;
@@ -709,7 +709,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_date_d`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255), value_default DATETIME) RETURNS datetime
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_date_d`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255), value_default DATETIME) RETURNS datetime
 BEGIN
 
     IF (json_unquote(json_extract(value_jsonObject, value_key)) = 'null' OR json_unquote(json_extract(value_jsonObject, value_key)) = 'undefined' OR json_unquote(json_extract(value_jsonObject, value_key)) IS NULL) THEN
@@ -734,7 +734,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_decimal`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS decimal(10,0)
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_decimal`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS decimal(10,0)
 BEGIN
 
     IF (json_unquote(json_extract(value_jsonObject, value_key)) = 'null') THEN
@@ -759,7 +759,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_decimal_d`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255), value_default BIGINT) RETURNS decimal(10,0)
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_decimal_d`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255), value_default BIGINT) RETURNS decimal(10,0)
 BEGIN
 
     IF (json_unquote(json_extract(value_jsonObject, value_key)) = 'null') THEN
@@ -784,7 +784,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_float`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS float
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_float`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS float
 BEGIN
 
     IF (json_unquote(json_extract(value_jsonObject, value_key)) = 'null') THEN
@@ -809,7 +809,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_float_d`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255), value_default FLOAT) RETURNS float
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_float_d`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255), value_default FLOAT) RETURNS float
 BEGIN
 
     IF (json_unquote(json_extract(value_jsonObject, value_key)) = 'null') THEN
@@ -834,7 +834,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_int`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS int(11)
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_int`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS int(11)
 BEGIN
 
     IF (json_unquote(json_extract(value_jsonObject, value_key)) = 'null' OR json_unquote(json_extract(value_jsonObject, value_key)) = 'undefined') THEN
@@ -859,7 +859,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_integer`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255), value_default INTEGER) RETURNS int(11)
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_integer`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255), value_default INTEGER) RETURNS int(11)
 BEGIN
 
     IF (json_unquote(json_extract(value_jsonObject, value_key)) = 'null') THEN
@@ -884,7 +884,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_int_d`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255), value_default INTEGER) RETURNS int(11)
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_int_d`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255), value_default INTEGER) RETURNS int(11)
 BEGIN
 
 	-- This function is a copy of the fn_get_json_int function with the addition
@@ -911,7 +911,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_longtext`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS longtext CHARSET utf8mb4
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_longtext`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS longtext CHARSET utf8mb4
 BEGIN
 
     IF (json_unquote(json_extract(value_jsonObject, value_key)) = 'null') THEN
@@ -936,7 +936,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_longtext_d`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255), value_default LONGTEXT CHARSET utf8mb4) RETURNS longtext CHARSET utf8mb4
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_longtext_d`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255), value_default LONGTEXT CHARSET utf8mb4) RETURNS longtext CHARSET utf8mb4
 BEGIN
 
     IF (json_unquote(json_extract(value_jsonObject, value_key)) = 'null') THEN
@@ -961,7 +961,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_object`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS json
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_object`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS json
 BEGIN
 
 	IF (json_unquote(json_extract(value_jsonObject, value_key)) = 'null') THEN
@@ -986,7 +986,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_time`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS time
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_time`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS time
 BEGIN
 
     IF (json_unquote(json_extract(value_jsonObject, value_key)) = 'null') THEN
@@ -1011,7 +1011,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_time_d`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255), value_default DATETIME) RETURNS time
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_time_d`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255), value_default DATETIME) RETURNS time
 BEGIN
 
 	IF (json_unquote(json_extract(value_jsonObject, value_key)) = 'null' OR json_unquote(json_extract(value_jsonObject, value_key)) IS NULL) THEN
@@ -1036,7 +1036,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_tinyint`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS tinyint(4)
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_tinyint`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS tinyint(4)
 BEGIN
 
     IF (json_unquote(json_extract(value_jsonObject, value_key)) = 'null') THEN
@@ -1061,7 +1061,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_tinyint_d`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255), value_default INTEGER) RETURNS tinyint(4)
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_tinyint_d`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255), value_default INTEGER) RETURNS tinyint(4)
 BEGIN
 
 	-- This function is a copy of the fn_get_json_int function with the addition
@@ -1088,7 +1088,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_varchar`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS varchar(255) CHARSET utf8mb4
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_varchar`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255)) RETURNS varchar(255) CHARSET utf8mb4
 BEGIN
 
     IF (json_unquote(json_extract(value_jsonObject, value_key)) = 'null') THEN
@@ -1113,7 +1113,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_json_varchar_d`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255), value_default VARCHAR(255)) RETURNS varchar(255) CHARSET utf8mb4
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_json_varchar_d`(value_jsonObject LONGTEXT CHARACTER SET utf8mb4, value_key VARCHAR(255), value_default VARCHAR(255)) RETURNS varchar(255) CHARSET utf8mb4
 BEGIN
 
     IF (json_unquote(json_extract(value_jsonObject, value_key)) = 'null') THEN
@@ -1138,7 +1138,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE FUNCTION `fn_get_user_role_names`(value_data CHARACTER VARYING(255)) RETURNS longtext CHARSET utf8mb4
+CREATE DEFINER=`root`@`%` FUNCTION `fn_get_user_role_names`(value_data CHARACTER VARYING(255)) RETURNS longtext CHARSET utf8mb4
 BEGIN
 
 	-- This function takes a JSON array of user roles ids and returns a comma
@@ -1189,7 +1189,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `del_activity_log`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `del_activity_log`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -1226,7 +1226,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `del_functions`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `del_functions`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -1263,7 +1263,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `del_function_groups`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `del_function_groups`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -1300,7 +1300,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `del_function_group_functions`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `del_function_group_functions`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -1337,7 +1337,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `del_users`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `del_users`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -1374,7 +1374,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `del_user_roles`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `del_user_roles`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -1411,7 +1411,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `del_user_role_function_groups`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `del_user_role_function_groups`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -1448,7 +1448,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_activity_log`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_activity_log`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -1500,7 +1500,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_activity_log_list`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_activity_log_list`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -1548,7 +1548,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_activity_log_recent`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_activity_log_recent`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -1599,7 +1599,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_dictionary`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_dictionary`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -1655,7 +1655,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_dictionary_items`(IN var_language VARCHAR(50), IN var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_dictionary_items`(IN var_language VARCHAR(50), IN var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	SELECT
@@ -1692,7 +1692,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_functions`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_functions`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -1742,7 +1742,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_functions_list`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_functions_list`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -1787,7 +1787,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_functions_recent`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_functions_recent`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -1832,7 +1832,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_function_groups`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_function_groups`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -1879,7 +1879,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_function_groups_list`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_function_groups_list`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -1923,7 +1923,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_function_groups_recent`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_function_groups_recent`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -1966,7 +1966,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_function_group_functions`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_function_group_functions`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -2018,7 +2018,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_function_group_functions_list`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_function_group_functions_list`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -2066,7 +2066,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_function_group_functions_recent`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_function_group_functions_recent`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -2114,7 +2114,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_security_functiongroupfunctions`(var_group_id INT)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_security_functiongroupfunctions`(var_group_id INT)
 BEGIN
 
 	SELECT function_id FROM function_group_functions WHERE function_group_id = var_group_id AND NOT deleted;
@@ -2135,7 +2135,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_security_functiongroups`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_security_functiongroups`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	SELECT
@@ -2166,7 +2166,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_security_functions`(var_Data LONGTEXT CHARACTER SET utf8mb4, var_group_id INT)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_security_functions`(var_Data LONGTEXT CHARACTER SET utf8mb4, var_group_id INT)
 BEGIN
 
 	IF (var_group_id = 0) THEN
@@ -2191,7 +2191,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_security_function_group_functions`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_security_function_group_functions`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -2246,7 +2246,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_security_publicfunctions`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_security_publicfunctions`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	SELECT
@@ -2283,7 +2283,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_security_userrolefunctions`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_security_userrolefunctions`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	SELECT
@@ -2326,7 +2326,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_security_userroles`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_security_userroles`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -2380,7 +2380,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_users`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_users`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -2446,7 +2446,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_users_list`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_users_list`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -2511,7 +2511,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_users_recent`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_users_recent`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -2571,7 +2571,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_user_roles`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_user_roles`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -2630,7 +2630,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_user_roles_list`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_user_roles_list`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -2684,7 +2684,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_user_roles_recent`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_user_roles_recent`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -2738,7 +2738,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_user_role_function_groups`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_user_role_function_groups`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -2789,7 +2789,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_user_role_function_groups_list`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_user_role_function_groups_list`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -2836,7 +2836,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `get_user_role_function_groups_recent`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `get_user_role_function_groups_recent`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -2883,7 +2883,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `search_activity_log`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `search_activity_log`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -2942,7 +2942,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `search_functions`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `search_functions`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -2991,7 +2991,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `search_function_groups`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `search_function_groups`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -3042,7 +3042,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `search_function_group_functions`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `search_function_group_functions`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -3097,7 +3097,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `search_users`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `search_users`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -3175,7 +3175,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `search_user_roles`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `search_user_roles`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -3236,7 +3236,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `search_user_role_function_groups`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `search_user_role_function_groups`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -3291,7 +3291,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `set_activity_log`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `set_activity_log`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId							INTEGER;
@@ -3382,7 +3382,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `set_functions`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `set_functions`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId						INTEGER;
@@ -3458,7 +3458,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `set_function_groups`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `set_function_groups`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -3540,7 +3540,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `set_function_group_functions`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `set_function_group_functions`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId							INTEGER;
@@ -3616,7 +3616,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `set_security_functiongroup`(var_Data LONGTEXT CHARACTER SET utf8mb4, var_name VARCHAR(50), var_category VARCHAR(50))
+CREATE DEFINER=`root`@`%` PROCEDURE `set_security_functiongroup`(var_Data LONGTEXT CHARACTER SET utf8mb4, var_name VARCHAR(50), var_category VARCHAR(50))
 BEGIN
 
 	INSERT INTO `function_groups` (function_group_name, function_group_category, replication_id) VALUES (var_name, var_category)
@@ -3643,7 +3643,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `set_security_functiongroupfunction`(var_Data LONGTEXT CHARACTER SET utf8mb4, var_group_id INT, var_name VARCHAR(255))
+CREATE DEFINER=`root`@`%` PROCEDURE `set_security_functiongroupfunction`(var_Data LONGTEXT CHARACTER SET utf8mb4, var_group_id INT, var_name VARCHAR(255))
 BEGIN
 
 	DECLARE var_function_id INT;
@@ -3676,7 +3676,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `set_security_functiongroupfunctions`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `set_security_functiongroupfunctions`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId						INTEGER;
@@ -3760,7 +3760,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `set_security_userrolefunctiongroup`(user_role_id INT, function_group_ids TEXT)
+CREATE DEFINER=`root`@`%` PROCEDURE `set_security_userrolefunctiongroup`(user_role_id INT, function_group_ids TEXT)
 BEGIN
 
 	SET @separator = ',';
@@ -3794,7 +3794,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `set_security_userrolefunctiongroups`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `set_security_userrolefunctiongroups`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId						INTEGER;
@@ -3859,7 +3859,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `set_users`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `set_users`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -4019,7 +4019,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `set_user_roles`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `set_user_roles`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId			INTEGER;
@@ -4114,7 +4114,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'IGNORE_SPACE,ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE PROCEDURE `set_user_role_function_groups`(var_Data LONGTEXT CHARACTER SET utf8mb4)
+CREATE DEFINER=`root`@`%` PROCEDURE `set_user_role_function_groups`(var_Data LONGTEXT CHARACTER SET utf8mb4)
 BEGIN
 
 	DECLARE key_userId						INTEGER;

@@ -62,7 +62,9 @@ Base class implementation for entity managers.
 			}
 			var postData = {};
 			for (var key in data) {
-				if (data[key] !== null) {
+				if (moment.isMoment(data[key])) {
+					postData[key] = moment(data[key]).format("YYYY-MM-DD[T]HH:mm");
+				} else {
 					postData[key] = ng.copy(data[key]);
 				}
 			}
