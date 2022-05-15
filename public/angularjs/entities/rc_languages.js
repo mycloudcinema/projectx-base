@@ -91,14 +91,23 @@ Auto generated entity for languages
 			return deferred.promise;
 		};
 
-		LanguagesManager.prototype.getSupported = function () {
+		LanguagesManager.prototype.getSupported = function (extended) {
 			var deferred = $q.defer(), _this = this;
 			rcWebservice.get(_this.webservices.action_getAll).then(function (response) {
-				var supportedLanguages = [];
-				response.data.forEach(language => {
-					supportedLanguages.push(_this._retrieveInstance(language));
-				})
-				deferred.resolve(supportedLanguages);
+				if (extended) {
+					deferred.resolve(response.data.map(language => {
+						return {
+							language:		language.language.toLowerCase(),
+							language_name:	language.language_name
+						}
+					}));
+				} else {
+					var supportedLanguages = {}
+					response.data.forEach(function(language) {
+						supportedLanguages[language.language] = true
+					})
+					deferred.resolve(supportedLanguages);
+				}
 			}, deferred.reject);
 			return deferred.promise;
 		};

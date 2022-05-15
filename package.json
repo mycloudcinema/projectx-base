@@ -1,6 +1,6 @@
 {
-  "_from": "@mycloudcinema/projectx-base@0.0.5",
-  "_id": "@mycloudcinema/projectx-base@0.0.5",
+  "_from": "@mycloudcinema/projectx-base@0.0.6",
+  "_id": "@mycloudcinema/projectx-base@0.0.6",
   "_inBundle": false,
   "_integrity": "sha512-fajnkJWU0CPt26M8/X5uOXKbojok0tHkM3dYZNJ5SgwttktvLlb09IosuXY+3eJ0xv3OMVpiHK0bMarxFRDmJA==",
   "_location": "/@mycloudcinema/projectx-base",
@@ -13,20 +13,20 @@
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "@mycloudcinema/projectx-base@0.0.5",
+    "raw": "@mycloudcinema/projectx-base@0.0.6",
     "name": "@mycloudcinema/projectx-base",
     "escapedName": "@mycloudcinema%2fprojectx-base",
     "scope": "@mycloudcinema",
-    "rawSpec": "0.0.5",
+    "rawSpec": "0.0.6",
     "saveSpec": null,
-    "fetchSpec": "0.0.5"
+    "fetchSpec": "0.0.6"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/@mycloudcinema/projectx-base/-/projectx-base-0.0.5.tgz",
+  "_resolved": "https://registry.npmjs.org/@mycloudcinema/projectx-base/-/projectx-base-0.0.6.tgz",
   "_shasum": "c91b40520d3e774086a7fce93c6eab6eb21500cf",
-  "_spec": "@mycloudcinema/projectx-base@0.0.5",
+  "_spec": "@mycloudcinema/projectx-base@0.0.6",
   "_where": "/Users/greg/Git/projectx/bewegtebilder-admin/app",
   "author": {
     "name": "Greg Bridle"
@@ -84,5 +84,5 @@
     "url": "git+https://github.com/mycloudcinema/projectx-base.git"
   },
   "scripts": {},
-  "version": "0.0.5"
+  "version": "0.0.6"
 }
